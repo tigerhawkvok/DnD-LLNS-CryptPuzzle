@@ -25,8 +25,7 @@ class Message:
                 
     def encode(self,key=None,*args):
         if key is None:
-            print("ERROR: No encryption key provided.")
-            return False
+            return "ERROR: No encryption key provided."
         else:
             try:
                 print("Continuing")
