@@ -30,7 +30,7 @@ You find a sheet of paper on an enemy you've yet to encounter. It says the follo
 >  
 > 78=7.8\*10<sup>1</sup> so k=7.8 and n=1  
 > -( (1-.78) + (1-.78)<sup>2</sup>/2 + (1-.78)<sup>3</sup>/3 )\*.4343 + 1 + 1 =  
-> -(.22+.22<sup>2</sup>/2 + .22<sup>3</sup>/3)\.4343 + 2 =  
+> -(.22+.22<sup>2</sup>/2 + .22<sup>3</sup>/3)\*.4343 + 2 =  
 > 2-0.248\*0.4343=2-.108=1.89, now round it down --> 1  
 > 10<sup>1</sup>=10 so 55/10=5.5 <-- I hate math  
 > so factor = 5.5.  
