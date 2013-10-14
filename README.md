@@ -74,6 +74,7 @@ This program is written to make it easy for you to test your hunches and play wi
 
 - [Python 3, x86](http://python.org/ftp/python/3.3.2/python-3.3.2.msi)
 - [Python 3, x64](http://python.org/ftp/python/3.3.2/python-3.3.2.amd64.msi)
+- Don't change the install path, or, if you do (or just for easier launching) [add Python to your $PATH](http://docs.python.org/2/using/windows.html#setting-envvars)
 
 ### OSX
 
