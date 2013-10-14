@@ -8,7 +8,7 @@ The easiest way for you to do this will be to [download the files](https://githu
 ## Come up with a new party name, guys.
 Or you're to be "The Southern Misfits". ;-)
 
-## Context:
+## Story Context
 
 You find a sheet of paper on an enemy you've yet to encounter. It says the following:
 
@@ -65,6 +65,8 @@ He also has one other sheet of paper on him. It's far less marked up and much mo
 There is a lot of help built in to this. Nevertheless, you can text me with one INT check per day, and I'll give you hints if it's good enough.
 
 This is hard puzzle -- even *very* hard. It is worth up to 6000 experience, depending on the speed of solution, number of hints, etc.
+
+Please note you're welcome to read the source code. The algorithm is given above in a fun, story way that's probably more doable and parseable in your heads, but if the code works for you have at it. The difficulty of this assumes you have access to the algorithm.
 
 ## Using this
 
