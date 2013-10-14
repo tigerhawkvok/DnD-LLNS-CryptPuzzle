@@ -1,6 +1,8 @@
 D&D Puzzle for The Southern Misfits
 ===================================
 
+You can view this file natively in Chrome with [the Markdown viewer extension](https://chrome.google.com/webstore/detail/markdown-preview/jmchmkecamhbiokiopfpnfgbidieafmd).
+
 ## Come up with a new name, guys.
 
 ## Context:
@@ -26,3 +28,5 @@ This program is written to make it easy for you to test your hunches and play wi
 
 - [Python 3, Linux](http://python.org/ftp/python/3.3.2/Python-3.3.2.tar.xz)
 - On Ubuntu / Debian, you can run `sudo apt-get install python3` in Terminal.
+
+Then, just run the appropriate `runme` file in the downloaded package.
