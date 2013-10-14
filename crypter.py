@@ -165,6 +165,7 @@ class Message:
             for i in n:
                 l=i+1
                 numerator+=int(nums[i])*l
+                #print(nums[i],l,int(nums[i])*l)
                 k+=int(nums[i])
             #print(numerator,k)
             exp=math.floor(math.log(k*len(chars),10)) # maybe use "round" instead ... ?
