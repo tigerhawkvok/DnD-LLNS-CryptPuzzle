@@ -87,26 +87,26 @@ Then, just run the appropriate `runme` file in the downloaded package.
 When you run the program, the following commands are available to you:
 
 ````python
-m.encode('this is a key')
->>> [Outputs ciphertext from plaintext using that key]
-m.decode('this is a key')
->>> [Outputs plaintext from ciphertext using that key]
-m.encode('key','here is a new plaintext')
->>> [Outputs ciphertext from the new plaintext with the given key]
-m.encode()
->>> [Ouputs ciphertext using the stored plaintext and stored key]
-m.setKey('a new key')
->>> [Saves the key, returns nothing]
-m.setMessage('a new message')
->>> [Saves the message, returns nothing]
-m.setCipher('123008923')
->>> [Saves the ciphertext, returns nothing]
-m.message
->>> [The stored plaintext]
-m.cipher
->>> [The stored ciphertext]
-m.key
->>> [The stored key]
+>>> m.encode('this is a key')
+# Outputs ciphertext from plaintext using that key
+>>> m.decode('this is a key')
+# Outputs plaintext from ciphertext using that key
+>>> m.encode('key','here is a new plaintext')
+# Outputs ciphertext from the new plaintext with the given key
+>>> m.encode()
+# Ouputs ciphertext using the stored plaintext and stored key
+>>> m.setKey('a new key')
+# Saves the key, returns nothing
+>>> m.setMessage('a new message')
+# Saves the message, returns nothing
+>>> m.setCipher('123008923')
+# Saves the ciphertext, returns nothing
+>>> m.message
+# The stored plaintext
+>>> m.cipher
+# The stored ciphertext
+>>> m.key
+# The stored key
 ````
 
 So, for example:
