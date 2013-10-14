@@ -134,7 +134,10 @@ class Message:
                         toSym=dict([reversed(i) for i in self.mapping.items()])
                         self.mapping.update(toSym)
                         for c in cb:
-                            letter=self.mapping[str(math.ceil(int(c)/factor))]
+                            try:
+                                letter=self.mapping[str(math.ceil(int(c)/factor))]
+                            except KeyError:
+                                letter=''
                             q+=letter
                         print(q)
                         self.message=q

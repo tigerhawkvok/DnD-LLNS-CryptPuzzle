@@ -63,5 +63,6 @@ So, for example:
 '034021051051064116086034038081116038081116004116081086077038060030'
 >>> m.decode()
 HELLO THIS IS A STRING
-
+>>> m.decode('different key')
+XOX  C U
 ````
