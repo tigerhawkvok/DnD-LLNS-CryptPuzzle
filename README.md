@@ -3,7 +3,8 @@ D&D Puzzle for The Southern Misfits
 
 You can view this file natively in Chrome with [the Markdown viewer extension](https://chrome.google.com/webstore/detail/markdown-preview/jmchmkecamhbiokiopfpnfgbidieafmd), though the examples will show best [in GitHub](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/).
 
-## Come up with a new name, guys.
+## Come up with a new party name, guys.
+Or you're to be "The Southern Misfits". ;-)
 
 ## Context:
 
