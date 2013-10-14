@@ -3,6 +3,8 @@ D&D Puzzle for The Southern Misfits
 
 You can view this file natively in Chrome with [the Markdown viewer extension](https://chrome.google.com/webstore/detail/markdown-preview/jmchmkecamhbiokiopfpnfgbidieafmd), though the examples will show best [in GitHub](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/).
 
+The easiest way for you to do this will be to [download the files](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/archive/master.zip) into a directory via the "download" link to your right.
+
 ## Come up with a new party name, guys.
 Or you're to be "The Southern Misfits". ;-)
 
