@@ -76,17 +76,27 @@ This program is written to make it easy for you to test your hunches and play wi
 - [Python 3, x64](http://python.org/ftp/python/3.3.2/python-3.3.2.amd64.msi)
 - Don't change the install path, or, if you do (or just for easier launching) [add Python to your $PATH](http://docs.python.org/2/using/windows.html#setting-envvars)
 
-### OSX
+### *Nix
+#### OSX
 
 - [Python 3, Intel](http://python.org/ftp/python/3.3.2/python-3.3.2-macosx10.6.dmg)
 - [Python 3, PowerPC](http://python.org/ftp/python/3.3.2/python-3.3.2-macosx10.5.dmg)
 
-### Linux
+#### Linux
 
 - [Python 3, Linux](http://python.org/ftp/python/3.3.2/Python-3.3.2.tar.xz)
 - On Ubuntu / Debian, you can run `sudo apt-get install python3` in Terminal.
+- In Red Hat based distros, or some others, you may use `yum`. 
 
-Then, just run the appropriate `runme` file in the downloaded package.
+### Running it
+
+#### Definitions
+First, a note on definitions: in encryption, the human-readable normal stuff is called [plaintext](https://en.wikipedia.org/wiki/Plaintext), "cleartext", or the "message". That's exactly what it sounds like.
+
+After it's been run through the encryption protocol, you have a mash that's generally unreadable. That's called the [ciphertext](https://en.wikipedia.org/wiki/Ciphertext). 
+
+#### Executing and using the program
+To run the program, just run the appropriate `runme` file in the downloaded package.
 
 When you run the program, the following commands are available to you:
 
