@@ -9,20 +9,24 @@ You can view this file natively in Chrome with [the Markdown viewer extension](h
 
 You find a sheet of paper on an enemy you've yet to encounter. It says the following:
 
-> **Practice ciphers!**
+> **Practice ciphers!**  
+>  
 > From demo --  
 > 'dog'  
-> Key 'a' -> 004015007
-> Key 'dog' -> 022082038
-> Let's try it ... key 'dog'
+> Key 'a' -> 004015007    
+> Key 'dog' -> 022082038  
+> Let's try it ... key 'dog'  
 > dog=4,15,7 -> 4\*1+15\*2+7\*3 = <span style='text-decoration:line-through'>52</span> 55  
-> 4+15+7=26 \*3= <span style='text-deocration:line-through'>81</span> 78  
-> * what the fuck is a log? *  
+> 4+15+7=26 \*3= <span style='text-deocration:line-through'>81</span> 78
+>  
+> *what the fuck is a log?*  
 > log<sub>10</sub>(k\*10<sup>n</sup>) = log<sub>10</sub>(k/10)+n+1 <-- what's that small 10 for?  
 > apparently the first thing is about:  
-> 1-x=k/10 -> 10-10x=k -> 10-k = 10x -> **1-k/10 = x**  
+> 1-x=k/10 -> 10-10x=k -> 10-k = 10x -> **1-k/10 = x**
+>  
 > So the whole thing is   
-> -( (1-k/10) + (1-k/10)<sup>2</sup>/2 + (1-k/10)<sup>3</sup>/3 )\*.4343 + n + 1<-- the bastards  
+> -( (1-k/10) + (1-k/10)<sup>2</sup>/2 + (1-k/10)<sup>3</sup>/3 )\*.4343 + n + 1<-- the bastards
+>  
 > 78=7.8\*10<sup>1</sup> so k=7.8 and n=1  
 > -( (1-.78) + (1-.78)<sup>2</sup>/2 + (1-.78)<sup>3</sup>/3 )\*.4343 + 1 + 1 =  
 > -(.22+.22<sup>2</sup>/2 + .22<sup>3</sup>/3)\.4343 + 2 =  
@@ -32,8 +36,10 @@ You find a sheet of paper on an enemy you've yet to encounter. It says the follo
 > 4\*5.5=22, 15\*5.5=82.5, 7\*5.5 = 38.5  
 > Round down, make 3 numbers  
 > **022 082 038** <-- Success!  
-> Key a? 1\*1=1, 1=1*10<sup>0</sup>, so -( .9+.9<sup>2</sup>/2+.9<sup>3</sup>/3)\*.4343+0+1 = 1-.67=0.32 -> 0  
-> So 10<sup>0</sup>=1 so 1/1=1 so** 004 015 007** <-- haha! maybe I can do math  
+> Key a?  
+> 1\*1=1, 1=1\*10<sup>0</sup>, so -( .9+.9<sup>2</sup>/2+.9<sup>3</sup>/3)\*.4343+0+1 = 1-.67=0.32 -> 0  
+> So 10<sup>0</sup>=1 so 1/1=1 so **004 015 007** <-- haha! maybe I can do math
+>  
 > Remember space is 27, period 28, question 29.
 >  
 > Memo: remember the elder everlasting  
@@ -46,6 +52,16 @@ You find a sheet of paper on an enemy you've yet to encounter. It says the follo
 > 043009051043017022022051001037037001005020051028026051024017007036039024024009034036051009041009  
 > 017037051017036051017024030028034037001026037051037028051037015009017034051030022001026036053051007028051026028037051011001017022053
 
+
+He also has one other sheet of paper on him. It's far less marked up and much more succinct.
+
+> The younger as he is  
+> 020046062052020027027062004011062009034032011064
+
+## Help
+There is a lot of help built in to this. Nevertheless, you can text me with one INT check per day, and I'll give you hints if it's good enough.
+
+This is hard puzzle -- even *very* hard. It is worth up to 6000 experience, depending on the speed of solution, number of hints, etc.
 
 ## Using this
 
