@@ -1,7 +1,7 @@
 D&D Puzzle for The Southern Misfits
 ===================================
 
-You can view this file natively in Chrome with [the Markdown viewer extension](https://chrome.google.com/webstore/detail/markdown-preview/jmchmkecamhbiokiopfpnfgbidieafmd).
+You can view this file natively in Chrome with [the Markdown viewer extension](https://chrome.google.com/webstore/detail/markdown-preview/jmchmkecamhbiokiopfpnfgbidieafmd), though the examples will show best [in GitHub](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/).
 
 ## Come up with a new name, guys.
 
@@ -52,4 +52,16 @@ m.cipher
 >>> [The stored ciphertext]
 m.key
 >>> [The stored key]
+````
+
+So, for example:
+
+````python
+>>> m.setKey('daria risaley imsh tiss')
+>>> m.setMessage('Hello this is a string')
+>>> m.encode()
+'034021051051064116086034038081116038081116004116081086077038060030'
+>>> m.decode()
+HELLO THIS IS A STRING
+
 ````

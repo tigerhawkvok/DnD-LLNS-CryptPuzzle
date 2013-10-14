@@ -172,7 +172,7 @@ class Message:
             print("ERROR:",inst)
             return None
 
-        def setKey(self,key):
+    def setKey(self,key):
             # Manually set the encryption key
             import re
             try:
@@ -186,7 +186,7 @@ class Message:
                 print("ERROR:",inst)
                 return None
 
-        def setMessage(self,message):
+    def setMessage(self,message):
             # Manually set the message
             try:
                 if message is not None:
@@ -202,7 +202,7 @@ class Message:
                 print("ERROR:",inst)
                 return None
 
-        def setCipher(self,cipher):
+    def setCipher(self,cipher):
             # Manually set the cipher
             try:
                 if cipher is not None:
