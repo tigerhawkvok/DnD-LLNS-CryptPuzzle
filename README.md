@@ -9,6 +9,8 @@ You can view this file natively in Chrome with [the Markdown viewer extension](h
 
 You find a sheet of paper on an enemy you've yet to encounter. It says the following:
 
+(Coming Soon)
+
 
 ## Using this
 
@@ -33,7 +35,7 @@ Then, just run the appropriate `runme` file in the downloaded package.
 
 When you run the program, the following commands are available to you:
 
-````
+````python
 m.encode('this is a key')
 >>> [Outputs ciphertext from plaintext using that key]
 m.decode('this is a key')
