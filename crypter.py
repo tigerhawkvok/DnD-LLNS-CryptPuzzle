@@ -1,4 +1,7 @@
-import math,re,sys
+## D&D Puzzle, Rewilding Campaign
+## Initial draft: 2013.10.13, Philip Kahn
+## https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle
+import math,re
 class Message:
     mapping = {
         'A':'1',
@@ -128,8 +131,6 @@ class Message:
                                 cb.append(t)
                                 t=''
                             i+=1
-                            #print(t,i,l)
-                        #print(cb)
                         q=''
                         toSym=dict([reversed(i) for i in self.mapping.items()])
                         self.mapping.update(toSym)
@@ -137,6 +138,7 @@ class Message:
                             try:
                                 letter=self.mapping[str(math.ceil(int(c)/factor))]
                             except KeyError:
+                                # Replace a 'bad' map from a bad key with a blank
                                 letter=''
                             q+=letter
                         print(q)
@@ -165,9 +167,7 @@ class Message:
             for i in n:
                 l=i+1
                 numerator+=int(nums[i])*l
-                #print(nums[i],l,int(nums[i])*l)
                 k+=int(nums[i])
-            #print(numerator,k)
             exp=math.floor(math.log(k*len(chars),10)) # maybe use "round" instead ... ?
             denominator=math.pow(10,exp)
             factor=numerator/denominator
@@ -191,34 +191,34 @@ class Message:
                 return None
 
     def setMessage(self,message):
-            # Manually set the message
-            try:
-                if message is not None:
-                    import re
-                    if re.match("^[A-Za-z .?]*$", message):
-                        # Just valid characters
-                        self.message=message.upper()
-                    else:
-                        raise Exception("Invalid message text")
+        # Manually set the message
+        try:
+            if message is not None:
+                import re
+                if re.match("^[A-Za-z .?]*$", message):
+                    # Just valid characters
+                    self.message=message.upper()
                 else:
-                    raise Exception("Message is empty")
-            except Exception as inst:
-                print("ERROR:",inst)
-                return None
+                    raise Exception("Invalid message text")
+            else:
+                raise Exception("Message is empty")
+        except Exception as inst:
+            print("ERROR:",inst)
+            return None
 
     def setCipher(self,cipher):
-            # Manually set the cipher
-            try:
-                if cipher is not None:
-                    if cipher.isdigit():
-                        if len(cipher)%3 is 0:
-                            self.cipher=cipher.upper()
-                        else:
-                            raise Exception("Invalid ciphertext length.")
+        # Manually set the cipher
+        try:
+            if cipher is not None:
+                if cipher.isdigit():
+                    if len(cipher)%3 is 0:
+                        self.cipher=cipher.upper()
                     else:
-                        raise Exception("Invalid ciphertext. Ciphertext can only have numbers.")
+                        raise Exception("Invalid ciphertext length.")
                 else:
-                    raise Exception("Cipher is empty")
-            except Exception as inst:
-                print("ERROR:",inst)
-                return None
+                    raise Exception("Invalid ciphertext. Ciphertext can only have numbers.")
+            else:
+                raise Exception("Cipher is empty")
+        except Exception as inst:
+            print("ERROR:",inst)
+            return None
