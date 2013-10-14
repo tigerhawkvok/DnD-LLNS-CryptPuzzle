@@ -133,7 +133,6 @@ class Message:
                         q=''
                         toSym=dict([reversed(i) for i in self.mapping.items()])
                         self.mapping.update(toSym)
-                        print(self.mapping)
                         for c in cb:
                             letter=self.mapping[str(math.ceil(int(c)/factor))]
                             q+=letter
