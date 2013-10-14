@@ -30,3 +30,26 @@ This program is written to make it easy for you to test your hunches and play wi
 - On Ubuntu / Debian, you can run `sudo apt-get install python3` in Terminal.
 
 Then, just run the appropriate `runme` file in the downloaded package.
+
+When you run the program, the following commands are available to you:
+
+````
+m.encode('this is a key')
+>>> [Outputs ciphertext from plaintext using that key]
+m.decode('this is a key')
+>>> [Outputs plaintext from ciphertext using that key]
+m.encode('key','here is a new plaintext')
+>>> [Outputs ciphertext from the new plaintext with the given key]
+m.setKey('a new key')
+>>> [Saves the key, returns nothing]
+m.setMessage('a new message')
+>>> [Saves the message, returns nothing]
+m.setCipher('123008923')
+>>> [Saves the ciphertext, returns nothing]
+m.message
+>>> [The stored plaintext]
+m.cipher
+>>> [The stored ciphertext]
+m.key
+>>> [The stored key]
+````
