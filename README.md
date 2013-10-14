@@ -64,7 +64,7 @@ He also has one other sheet of paper on him. It's far less marked up and much mo
 ## Help
 There is a lot of help built in to this. Nevertheless, you can text me with one INT check per day, and I'll give you hints if it's good enough.
 
-This is hard puzzle -- even *very* hard. It is worth up to 6000 experience, depending on the speed of solution, number of hints, etc. Think of this as your version of [Xykon's Moderately-Escapable Forcecage](http://www.giantitp.com/comics/oots0376.html)
+This is hard puzzle -- even *very* hard. It is worth up to 6000 experience, depending on the speed of solution, number of hints, etc. Think of this as your version of [Xykon's Moderately-Escapable Forcecage](http://www.giantitp.com/comics/oots0376.html).
 
 Please note you're welcome to read the source code. The algorithm is given above in a fun, story way that's probably more doable and parseable in your heads, but if the code works for you have at it. The difficulty of this assumes you have access to the algorithm. You don't strictly need it (there are plain flaws built into the crypto that should let you decipher the text with virtually no knowledge), but it'll help.
 

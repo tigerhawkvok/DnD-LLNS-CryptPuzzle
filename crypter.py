@@ -83,7 +83,7 @@ class Message:
                     q=''
                     for c in mc:
                         cmap=int(self.mapping[c])
-                        num=str(math.floor(cmap*factor))
+                        num=str(int(math.floor(cmap*factor)))
                         if len(num) is not 3:
                             if len(num)==1:
                                 num='00'+num
@@ -136,7 +136,7 @@ class Message:
                         self.mapping.update(toSym)
                         for c in cb:
                             try:
-                                letter=self.mapping[str(math.ceil(int(c)/factor))]
+                                letter=self.mapping[str(int(math.ceil(int(c)/factor)))]
                             except KeyError:
                                 # Replace a 'bad' map from a bad key with a blank
                                 letter=''
