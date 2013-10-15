@@ -3,6 +3,7 @@
 ## https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle
 import math,re
 class Message:
+    # Consider including numbers in map, newline.
     mapping = {
         'A':'1',
         'B':'2',
@@ -34,6 +35,7 @@ class Message:
         '.':'28',
         '?':'29'
         }
+    regex_pattern="^[A-Za-z .?]*$" # regular expression for valid character set
 
     def __init__(self,val=None):
         # Initialization of class
@@ -46,7 +48,7 @@ class Message:
                 # Message is intialized with any value
                 if val.isdigit() is False: 
                     self.cipher=None
-                    if re.match("^[A-Za-z .?]*$", val):
+                    if re.match(self.regex_pattern, val):
                         # Just valid characters
                         self.message=val.upper()
                     else:
@@ -80,7 +82,7 @@ class Message:
                 if key is not None:
                     self.key=key.upper()
                 if message is not None:
-                    if re.match("^[A-Za-z .?]*$", message):
+                    if re.match(self.regex_pattern, message):
                         # Just valid characters
                         self.message=message.upper()
                     else:
@@ -91,7 +93,7 @@ class Message:
                     mc=list(self.message)
                     q=''
                     for c in mc:
-                        cmap=int(self.mapping[c])
+                        cmap=int(self.mapping[c]) # Consider offseting by either message length or key length
                         num=str(int(math.floor(cmap*factor)))
                         if len(num) is not 3:
                             if len(num)==1:
@@ -114,7 +116,7 @@ class Message:
                 raise Exception("No decryption key provided.")
             elif key is None and self.key is not None:
                 key=self.key
-            if not re.match("^[A-Za-z .?]*$", key) and key is not None:
+            if not re.match(self.regex_pattern, key) and key is not None:
                 raise Exception("Bad decryption key")
             else:
                 if key is not None:
@@ -177,7 +179,7 @@ class Message:
                 l=i+1
                 numerator+=int(nums[i])*l
                 k+=int(nums[i])
-            exp=math.floor(math.log(k*len(chars),10)) # maybe use "round" instead ... ?
+            exp=math.floor(math.log(k*len(chars),10)) 
             denominator=math.pow(10,exp)
             factor=numerator/denominator
             return factor
@@ -191,7 +193,7 @@ class Message:
             try:
                 if key is None:
                     raise Exception("No encryption key provided.")
-                elif not re.match("^[A-Za-z .?]*$", key) and key is not None:
+                elif not re.match(self.regex_pattern, key) and key is not None:
                     raise Exception("Bad encryption key")
                 else:
                     self.key=key
@@ -204,7 +206,7 @@ class Message:
         try:
             if message is not None:
                 import re
-                if re.match("^[A-Za-z .?]*$", message):
+                if re.match(self.regex_pattern, message):
                     # Just valid characters
                     self.message=message.upper()
                 else:
