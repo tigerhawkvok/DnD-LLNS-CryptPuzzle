@@ -127,6 +127,8 @@ When you run the program, the following commands are available to you:
 # A new object, 'bob', that behaves the same as 'm' above. Initialized with message 'test message'.
 >>> sally=Message('001234')
 # A new object, 'sally', that behaves as 'bob' and 'm' above, initialized with a ciphertext.
+>>> q=Message()
+# A new object, 'q', initialized blankly. Behaves as 'bob', 'sally', and 'm' above.
 ````
 
 So, for example:
