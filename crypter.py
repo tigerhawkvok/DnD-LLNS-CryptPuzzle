@@ -35,29 +35,38 @@ class Message:
         '?':'29'
         }
 
-    def __init__(self,val):
+    def __init__(self,val=None):
         # Initialization of class
         self.key=None
-        if val.isdigit() is False: 
-            self.cipher=None
-            if re.match("^[A-Za-z .?]*$", val):
-                # Just valid characters
-                self.message=val.upper()
-            else:
-                # Bad input
-                print("Invalid message or ciphertext")
-                self.message=None
-        else:
-            # Just digits
-            self.message=None
-            # Check padding/encoding
-            if len(val)%3 is 0:
-                self.cipher=val
-            else: 
-                # Bad input
-                print("Invalid message or ciphertext.")
+        try:
+            if val is None:
                 self.cipher=None
-                
+                self.message=None
+            else:
+                # Message is intialized with any value
+                if val.isdigit() is False: 
+                    self.cipher=None
+                    if re.match("^[A-Za-z .?]*$", val):
+                        # Just valid characters
+                        self.message=val.upper()
+                    else:
+                        # Bad input
+                        print("Invalid message or ciphertext. Initializing empty object.")
+                        self.message=None
+                else:
+                    # Just digits
+                    self.message=None
+                    # Check padding/encoding
+                    if len(val)%3 is 0:
+                        self.cipher=val
+                    else: 
+                        # Bad input
+                        print("Invalid ciphertext length. Initializing empty object.")
+                        self.cipher=None
+            print("Ready.")
+        except Exception as inst:
+            print("UNEXPECTED ERROR: Could not initialize object -",inst)
+
     def encode(self,key=None,message=None):
         import re
         try:
