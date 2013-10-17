@@ -196,7 +196,7 @@ class Message:
                 elif not re.match(self.regex_pattern, key) and key is not None:
                     raise Exception("Bad encryption key")
                 else:
-                    self.key=key
+                    self.key=key.upper()
             except Exception as inst:
                 print("ERROR:",inst)
                 return None
