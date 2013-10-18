@@ -100,6 +100,8 @@ After it's been run through the encryption protocol, you have a mash that's gene
 #### Executing and using the program
 To run the program, just run the appropriate `runme` file in the downloaded package.
 
+**If you have problems on OSX** - navigate to the directory with the files in Terminal, and run ``./runme-linux.sh`, which should work fine.
+
 When you run the program, the following commands are available to you:
 
 ````python
