@@ -35,6 +35,7 @@ class Message:
         '.':'28',
         '?':'29'
         }
+    maplen=len(mapping)
     regex_pattern="^[A-Za-z .?]*$" # regular expression for valid character set
 
     def __init__(self,val=None):
@@ -222,11 +223,10 @@ class Message:
                 m=self.message
             chars=list(m)
             rotated=''
-            orig_len=len(self.mapping)
             toSym=dict([reversed(i) for i in self.mapping.items()])
             self.mapping.update(toSym)
             for letter in chars:
-                new_num=(int(self.mapping[letter])+n)%orig_len
+                new_num=(int(self.mapping[letter])+n)%self.maplen
                 new_letter=self.mapping[str(new_num)]
                 rotated+=new_letter
             return rotated
