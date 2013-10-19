@@ -284,9 +284,9 @@ class Message:
             return None
 
     ## Alternate definitions
-    def setcipher(*args):
+    def setcipher(self,*args):
         self.setCipher(*args)
-    def setmessage(*args):
+    def setmessage(self,*args):
         self.setMessage(*args)
-    def setkey(*args):
+    def setkey(self,*args):
         self.setKey(*args)
