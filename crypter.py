@@ -90,7 +90,8 @@ class Message:
                         print("Invalid message or ciphertext, attempting to use stored value")
                 if self.message is not None:
                     factor=self.getFactor()
-                    mc=list(self.message)
+                    rm=self.rot()
+                    mc=list(rm) # self.message)
                     q=''
                     for c in mc:
                         cmap=int(self.mapping[c]) # Consider offseting by either message length or key length
@@ -152,8 +153,9 @@ class Message:
                                 # Replace a 'bad' map from a bad key with a blank
                                 letter=''
                             q+=letter
-                        print(q)
-                        self.message=q
+                        uq=self.rot(q,'-'+str(len(self.key)))
+                        print(uq)
+                        self.message=uq
                     else:
                         raise Exception("No valid ciphertext to decrypt")
         except Exception as inst:
@@ -186,6 +188,52 @@ class Message:
         except Exception as inst:
             print("ERROR:",inst)
             return None
+    
+    def rot(self,m=None,n=None):
+        # Rotate a message 'm' by 'n'
+        try:
+            if n is None or str(abs(int(n))).isdigit() is False:
+                if m is not None:
+                    try:
+                        if str(abs(int(m))).isdigit() is True:
+                            n=m
+                    except TypeError:
+                        # abs or something didn't work
+                        pass
+                else:
+                    try:
+                        n=len(self.key)
+                    except TypeError:
+                        # the key hasn't been defined
+                        raise Exception("No key has been defined yet, and no rotation size has been provided.")
+            else: n=int(n) # just in case
+        except Exception as inst:
+            print("ERROR: Invalid Rotation Length - ",inst);
+            return None
+        try:
+            if m is not None:
+                import re
+                if re.match(self.regex_pattern, m):
+                    # Just valid characters
+                    m=m.upper()
+                else:
+                    raise Exception("Invalid message text")
+            else:
+                m=self.message
+            chars=list(m)
+            rotated=''
+            orig_len=len(self.mapping)
+            toSym=dict([reversed(i) for i in self.mapping.items()])
+            self.mapping.update(toSym)
+            for letter in chars:
+                new_num=(int(self.mapping[letter])+n)%orig_len
+                new_letter=self.mapping[str(new_num)]
+                rotated+=new_letter
+            return rotated
+        except Exception as inst:
+            print("UNEXPECTED ERROR:",inst)
+            return None
+            
 
     def setKey(self,key):
             # Manually set the encryption key
@@ -233,3 +281,11 @@ class Message:
         except Exception as inst:
             print("ERROR:",inst)
             return None
+
+    ## Alternate definitions
+    def setcipher(*args):
+        self.setCipher(*args)
+    def setmessage(*args):
+        self.setMessage(*args)
+    def setkey(*args):
+        self.setKey(*args)
