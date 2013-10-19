@@ -227,6 +227,7 @@ class Message:
             self.mapping.update(toSym)
             for letter in chars:
                 new_num=(int(self.mapping[letter])+n)%self.maplen
+                if new_num is 0: new_num=self.maplen
                 new_letter=self.mapping[str(new_num)]
                 rotated+=new_letter
             return rotated
