@@ -42,7 +42,7 @@ You find a sheet of paper on an enemy you've yet to encounter. It says the follo
 > **038 099 055** <-- Success!  
 > Key a?  
 > 1\*1=1, 1=1\*10<sup>0</sup>, so -( .9+.9<sup>2</sup>/2+.9<sup>3</sup>/3)\*.4343+0+1 = 1-.67=0.32 -> 0  
-> So 10<sup>0</sup>=1 so 1/1=1 so (4+1)*1, (15+1)*1, (7+1)*1 --> **005 016 008** <-- haha! maybe I can do math
+> So 10<sup>0</sup>=1 so 1/1=1 so (4+1)\*1, (15+1)\*1, (7+1)\*1 --> **005 016 008** <-- haha! maybe I can do math
 >  
 > Remember space is 27, period 28, question 29.
 >  
