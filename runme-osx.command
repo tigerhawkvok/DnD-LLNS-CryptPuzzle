@@ -1,3 +1,4 @@
 # Shell script. Verified working on Mountain Lion
-cd `dirname $0`
+here="`dirname \"$0\"`"
+cd "$here"
 python -i main.py
