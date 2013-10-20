@@ -59,6 +59,7 @@ You find a sheet of paper on an enemy you've yet to encounter. It says the follo
 
 He also has one other sheet of paper on him. It's far less marked up and much more succinct.
 
+
 > The younger as he is  
 > 064023039029064004004039048055039052011009055041
 
