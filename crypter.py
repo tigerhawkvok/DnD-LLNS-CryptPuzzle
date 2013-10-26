@@ -194,9 +194,9 @@ class Message:
                 l=i+1
                 numerator+=int(nums[i])*l
                 k+=int(nums[i])
-            exp=math.floor(math.log(k*len(chars),10)) 
-            denominator=math.pow(10,exp)
-            factor=numerator/denominator
+            # exp=math.floor(math.log(k*len(chars),10)) 
+            #denominator=math.pow(10,exp)
+            factor=numerator # /denominator
             return factor
         except Exception as inst:
             print("ERROR:",inst)
@@ -246,7 +246,15 @@ class Message:
         except Exception as inst:
             print("UNEXPECTED ERROR:",inst)
             return None
-            
+    
+    def mutateLetter(self,letter,factor=None):
+        # Take a letter, and mutate it to the 4-character version
+        try:
+            # Take a letter, get its map, multiply by factor, divide by prime, pad with significand in hex
+            return None
+        except Exception as inst:
+            print("UNEXPECTED ERROR:",inst)
+            return None
 
     def setKey(self,key):
             # Manually set the encryption key
