@@ -70,15 +70,16 @@ class Message:
                         print("Invalid message or ciphertext. Initializing empty object.")
                         self.message=None
                 else:
-                    # Just digits
-                    self.message=None
                     # Check padding/encoding
                     if len(val)%3 is 0 or len(val)%5 is 0:
                         self.cipher=val
+                        self.message=None
                     else: 
-                        # Bad input
-                        print("Invalid ciphertext length. Initializing empty object.")
+                        # All ciphertext characters are legitimate message characters. 
+                        # Probably a mistake, but make it clear to the user and don't assume.
+                        print("Invalid ciphertext length. Initializing as a message.")
                         self.cipher=None
+                        self.message=val
             print("Ready.")
         except Exception as inst:
             print("UNEXPECTED ERROR: Could not initialize object -",inst)
