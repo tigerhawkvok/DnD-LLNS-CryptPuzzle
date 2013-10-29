@@ -47,7 +47,7 @@ HELLO THIS IS A STRING
 ````
 
 ### Rolls for hints
-You can text me with one INT check per day, and I'll give you hints if it's good enough. The [example at the bottom](#) is itself always a hint, too.
+You can text me with one INT check per day, and I'll give you hints if it's good enough. The [example at the bottom](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle#executing-and-using-the-program) is itself always a hint, too.
 
 ### XP
 Think of this as your version of [Xykon's Moderately-Escapable Forcecage](http://www.giantitp.com/comics/oots0376.html). It's always going to be possible, but hard. The XP I'll determine based on the iteration, how many you've previoussly broken, iteration difficulty, etc. You can be pretty sure that it'll always be >=1k XP.
