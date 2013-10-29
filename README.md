@@ -5,6 +5,8 @@ You can find the original context, and latest original version [over here in the
 
 The use of this cipher will slowly morph over time as the creators "improve" their algorithm, or if they suspect that you guys have broken it, but [the old behaviour is still accessible](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle#using-old-versions-of-the-program), and [the original note is now Note1.md](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/blob/master/Note1.md)
 
+Good local `*.md` viewer is [MarkView for Chrome](https://chrome.google.com/webstore/detail/markview/iaddkimmopgchbbnmfmdcophmlnghkim) which parses "Github-Flavored Markdown", unlike the last one I linked.
+
 ## Story Context
 
 *While Daria is in her makeshift coffin, sleeping and regenerating, a raven with a small parchment tied to it lands on it briefly, puzzled. Tiss manages to quiet it long enough for to grab, revealing the following note:*
@@ -38,7 +40,7 @@ You can use the old `encode()` and `decode()` functions by calling `encodeV1()` 
 
 Thus, to borrow from the old example:
 
-````python
+```python
 >>> m.setKey('daria risaley imsh tiss')
 >>> m.setMessage('Hello this is a string')
 >>> m.encodeV1()
@@ -49,7 +51,7 @@ HELLO THIS IS A STRING
 MZ3ZIZU # whoops! Obviously different
 >>> m.getFactorV1()
 4.304
-````
+```
 
 ### Rolls for hints
 You can text me with one INT check per day, and I'll give you hints if it's good enough. The [example at the bottom](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle#executing-and-using-the-program) is itself always a hint, too.
@@ -124,7 +126,7 @@ When you run the program, the following commands are available to you:
 
 So, for example:
 
-````python
+```python
 >>> m.setKey('daria risaley imsh tiss')
 >>> m.setMessage('Hello this is a string')
 >>> m.encode()
@@ -139,4 +141,4 @@ So, for example:
 '1F0D91C0C4230F5230F52610A0903F0200E1F0D9200E0010070903F200E0010070903F180A80903F010070200E2911F200E0251031E0D2' # The cipher is unchanged
 >>> m.decode('daria risaley imsh tiss')
 HELLO THIS IS A STRING # It still recovers
-````
+```

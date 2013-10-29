@@ -9,8 +9,8 @@ You find a sheet of paper on an enemy you've yet to encounter. It says the follo
 > Key 'a' -> 004015007    
 > Key 'dog' -> 0380999055  
 > Let's try it ... key 'dog'  
-> dog=4,15,7 -> 4\*1+15\*2+7\*3 = <span style='text-decoration:line-through'>52</span> 55  
-> 4+15+7=26 \*3= <span style='text-decoration:line-through'>81</span> 78
+> dog=4,15,7 -> 4\*1+15\*2+7\*3 = ~~52~~ 55  
+> 4+15+7=26 \*3= ~~81~~ 78
 >  
 > *what the fuck is a log?*  
 > log<sub>10</sub>(k\*10<sup>n</sup>) = log<sub>10</sub>(k/10)+n+1 <-- what's that small 10 for?  

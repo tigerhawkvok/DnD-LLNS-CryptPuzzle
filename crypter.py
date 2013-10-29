@@ -239,7 +239,9 @@ class Message:
             return None
     
     def mutateLetter(self,letter,factor=None,forward=True):
-        # Take a letter, and mutate it to the 4-character version
+        # Take a letter, and mutate it to the 5-character version
+        ## Difficulty iteration -- have the rotation be based on character position in string (defeat frequency)
+        ## Difficulty iteration -- round to 1 dec, if %1!=0, double and mod maplen (close matches aren't)
         try:
             if factor is None:
                 factor=self.getFactor()
