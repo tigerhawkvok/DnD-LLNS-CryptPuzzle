@@ -60,7 +60,7 @@ class Message:
                 self.message=None
             else:
                 # Message is intialized with any value
-                if re.match(self.regex_hex,val) is False: 
+                if not re.match(self.regex_hex,val): 
                     self.cipher=None
                     if re.match(self.regex_pattern, val):
                         # Just valid characters
@@ -130,8 +130,8 @@ class Message:
             else:
                 if key is not None:
                     self.key=key.upper()
-                    if cipher is not None and cipher.isdigit():
-                        if len(cipher)%3 is 0:
+                    if cipher is not None and not re.match(self.regex_pattern,key):
+                        if len(cipher)%5 is 0:
                             self.cipher=cipher.upper()
                         else:
                             print("Invalid ciphertext length. Attempting to use stored value")
@@ -140,27 +140,20 @@ class Message:
                     if self.cipher is not None:
                         # Decrypt
                         factor=self.getFactor()
-                        # Bucket the characters in 3
+                        # Bucket the characters in 5
                         cl=list(self.cipher)
                         cb=list()
                         i=1
                         t=''
                         for l in cl:
                             t+=str(l)
-                            if i%3 is 0:
+                            if i%5 is 0:
                                 cb.append(t)
                                 t=''
                             i+=1
                         q=''
-                        toSym=dict([reversed(i) for i in self.mapping.items()])
-                        self.mapping.update(toSym)
                         for c in cb:
-                            try:
-                                letter=self.mapping[str(int(math.ceil(int(c)/factor)))]
-                            except KeyError:
-                                # Replace a 'bad' map from a bad key with a blank
-                                letter=''
-                            q+=letter
+                            q+=self.mutateLetter(c,factor,False)
                         uq=self.rot(q,'-'+str(len(self.key)))
                         print(uq)
                         self.message=uq
@@ -240,40 +233,28 @@ class Message:
             print("UNEXPECTED ROTATION ERROR:",inst)
             return None
     
-    def mutateLetter(self,letter,factor,forward=True):
+    def mutateLetter(self,letter,factor=None,forward=True):
         # Take a letter, and mutate it to the 4-character version
         try:
+            if factor is None:
+                factor=self.getFactor()
+                if factor is None:
+                    raise Exception('No factor could be obtained.')
             if forward:
                 # Take a letter, get its map, multiply by factor, divide by prime, pad with significand in hex
                 # find the biggest prime less than the factor
                 letter=letter.upper()
+                try:
+                    numeric_rep=int(self.mapping[letter])
+                except KeyError:
+                    raise Exception("Invalid message character '"+letter+"'")
                 if str(factor).isdigit() is False: 
                     raise Exception("Bad factor")
-                # first candidates
-                c1=list()
-                ref=list()
-                r=range(2,factor)
-                for n in r:
-                    if n%2 is not 0: 
-                        c1.append(n)
-                c1.reverse()
-                ref=c1
-                hprime=factor
-                for n in ref:
-                    isPrime=True
-                    for n2 in c1:
-                        if n2 < n: 
-                            if (n/n2)%1 == 0:
-                                isPrime=False
-                                break
-                    if isPrime:
-                        hprime=n
-                        break
-                numeric_rep=int(self.mapping[letter])
+                hp=self.getHighestPrime(factor)
                 composite=numeric_rep*factor
                 import math
-                significand=math.floor(composite/hprime)
-                cipher=composite%hprime
+                significand=math.floor(composite/hp)
+                cipher=composite%hp
                 hsig=hex(significand).split('x')[1]
                 hcip=hex(cipher).split('x')[1]
                 spad=2-len(hsig)
@@ -285,9 +266,53 @@ class Message:
                 return mutated.upper()
             else:
                 # undo it!
-                return None
+                import re
+                if not re.match(self.regex_hex,letter) or len(letter)%5 is not 0:
+                    raise Exception('Invalid cipher character')
+                # checked the input, contiue
+                significand=int(letter[:2],16)
+                cipher=int(letter[2:],16)
+                hp=self.getHighestPrime(factor)
+                resid=cipher/hp
+                frac=significand+resid
+                composite=frac*hp
+                origmap=str(int(composite/factor)) # rounding errors
+                # Now take this digit and remap it to the base characters
+                toSym=dict([reversed(i) for i in self.mapping.items()])
+                try:
+                    dc=toSym[origmap]
+                except KeyError:
+                    dc=''
+                return dc
         except Exception as inst:
             print("UNEXPECTED MUTATION ERROR:",inst)
+            return None
+
+    def getHighestPrime(self,s):
+        try:
+            c1=list()
+            ref=list()
+            r=range(2,s) # start at 2, lowest prime
+            for n in r:
+                if n%2 is not 0: 
+                    c1.append(n)
+            c1.reverse()
+            ref=c1
+            hprime=s
+            for n in ref:
+                isPrime=True # default to true, break out if not
+                for n2 in c1:
+                    if n2 < n: 
+                        # only check smaller values
+                        if (n/n2)%1 == 0:
+                            isPrime=False
+                            break
+                if isPrime:
+                    hprime=n
+                    break
+            return hprime
+        except Exception as inst:
+            print("UNEXPECTED PRIME FINDING ERROR:",inst)
             return None
 
     def setKey(self,key):
