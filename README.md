@@ -42,6 +42,8 @@ Thus, to borrow from the old example:
 '008120025025038090060008012055090012055090103090055060051012034004'
 >>> m.decodeV1()
 HELLO THIS IS A STRING
+>>>m.decode()
+MZ3ZIZU # whoops! Obviously different
 >>> m.getFactorV1()
 4.304
 ````
@@ -125,9 +127,9 @@ So, for example:
 >>> m.encode()
 '1F0D91C0C4230F5230F52610A0903F0200E1F0D9200E0010070903F200E0010070903F180A80903F010070200E2911F200E0251031E0D2'
 >>> m.decode()
-HELLO THIS IS A STRING
+'HELLO THIS IS A STRING'
 >>> m.decode('different key')
-ROVVY5-RS?5S?5K5?-.SXQ
+'ROVVY5-RS?5S?5K5?-.SXQ'
 >>> m.key
 'DIFFERENT KEY' # The different key you just used is stored
 >>> m.cipher
