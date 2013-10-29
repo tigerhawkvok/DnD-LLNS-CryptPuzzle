@@ -351,16 +351,18 @@ class Message:
             if cipher is not None:
                 #check if it's a hex
                 import re
-                if re.match(self.regex_hex, cipher):
-                    if len(cipher)%5 is 0:
-                        self.cipher=cipher.upper()
-                    else:
-                        raise Exception("Invalid ciphertext length")
-                elif cipher.isdigit():
+                if cipher.isdigit():
+                    # This has to be first, hex is a subset
                     if len(cipher)%3 is 0:
                         self.cipher=cipher.upper()
                     else:
-                        raise Exception("Invalid ciphertext length.")
+                        raise Exception("Invalid ciphertext length (dec).")
+                elif re.match(self.regex_hex, cipher):
+                    if len(cipher)%5 is 0:
+                        self.cipher=cipher.upper()
+                    else:
+                        raise Exception("Invalid ciphertext length (hex).")
+
                 else:
                     raise Exception("Invalid ciphertext. Ciphertext can only have hex numbers (0-9, A-F).")
             else:
