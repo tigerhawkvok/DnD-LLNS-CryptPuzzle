@@ -189,9 +189,7 @@ class Message:
                 l=i+1
                 numerator+=int(nums[i])*l
                 k+=int(nums[i])
-            # exp=math.floor(math.log(k*len(chars),10)) 
-            #denominator=math.pow(10,exp)
-            factor=numerator # /denominator
+            factor=numerator
             return factor
         except Exception as inst:
             print("ERROR:",inst)
@@ -278,15 +276,12 @@ class Message:
                 cipher=composite%hprime
                 hsig=hex(significand).split('x')[1]
                 hcip=hex(cipher).split('x')[1]
-                # print("Prime:",hprime,"letter",letter,"composite",composite,"Sig:",significand,"Ciph:",cipher,hsig,hcip)
                 spad=2-len(hsig)
                 cpad=3-len(hcip)
                 if cpad is 1: hcip='0'+hcip
                 elif cpad is 2: hcip='00'+hcip
                 if spad is 1: hsig='0'+hsig
                 mutated=hsig+hcip
-                # print(hsig,hcip)
-                # print(mutated.upper())
                 return mutated.upper()
             else:
                 # undo it!
@@ -357,9 +352,13 @@ class Message:
     def setkey(self,*args):
         self.setKey(*args)
 
-    ##########
-    # Old Versions
-    ##########
+
+
+    ##################################
+    # Old Versions for continued use #
+    ##################################
+
+
     mappingV1 = {
         'A':'1',
         'B':'2',
