@@ -154,9 +154,8 @@ class Message:
                         q=''
                         for c in cb:
                             q+=self.mutateLetter(c,factor,False)
-                        uq=self.rot(q,'-'+str(len(self.key)))
-                        print(uq)
-                        self.message=uq
+                        print(q)
+                        self.message=q
                     else:
                         raise Exception("No valid ciphertext to decrypt")
         except Exception as inst:
@@ -255,6 +254,7 @@ class Message:
                 import math
                 significand=math.floor(composite/hp)
                 cipher=composite%hp
+                #print('encoding',letter,significand,cipher)
                 hsig=hex(significand).split('x')[1]
                 hcip=hex(cipher).split('x')[1]
                 spad=2-len(hsig)
@@ -276,13 +276,15 @@ class Message:
                 resid=cipher/hp
                 frac=significand+resid
                 composite=frac*hp
-                origmap=str(int(composite/factor)) # rounding errors
+                origmap=str(round(composite/factor)) # rounding errors
                 # Now take this digit and remap it to the base characters
                 toSym=dict([reversed(i) for i in self.mapping.items()])
                 try:
-                    dc=toSym[origmap]
+                    q=toSym[origmap]
+                    dc=self.rot(q,'-'+str(len(self.key)))
                 except KeyError:
                     dc=''
+                #print('got',dc,q,'with',factor,hp,letter,frac,composite/factor,'from',origmap)
                 return dc
         except Exception as inst:
             print("UNEXPECTED MUTATION ERROR:",inst)
