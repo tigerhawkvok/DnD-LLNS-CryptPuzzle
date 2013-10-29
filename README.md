@@ -3,7 +3,7 @@ D&D Puzzle for The Southern Misfits
 
 You can find the original context, and latest original version [over here in the history](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/tree/aaf57a871fcea402a9fbe1a313d51dbc8b65ddf5). It'll be helpful if you need a refresher, or if (Luanne!) you haven't solved it.
 
-The use of this cipher will slowly morph over time as the creators "improve" their algorithm, or if they suspect that you guys have broken it, but [the old behaviour is still accessible](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle#using-old-versions-of-the-program)
+The use of this cipher will slowly morph over time as the creators "improve" their algorithm, or if they suspect that you guys have broken it, but [the old behaviour is still accessible](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle#using-old-versions-of-the-program), and [the original note is now Note1.md](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/blob/master/Note1.md)
 
 ## Story Context
 
