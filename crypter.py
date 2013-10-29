@@ -105,7 +105,7 @@ class Message:
                 if self.message is not None:
                     factor=self.getFactor()
                     rm=self.rot()
-                    mc=list(rm) # self.message)
+                    mc=list(rm)
                     q=''
                     for c in mc:
                         num=self.mutateLetter(c,factor)
@@ -153,7 +153,7 @@ class Message:
                             i+=1
                         q=''
                         for c in cb:
-                            q+=self.mutateLetter(c,factor,False)
+                            q+=self.mutateLetter(c,factor,False) # rotated inside here
                         print(q)
                         self.message=q
                     else:
