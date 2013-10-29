@@ -173,14 +173,19 @@ class Message:
             nums=list()
             n=range(len(chars)) # The iterator
             for letter in chars:
+                # Difficulty iteration - reduce light dependence on early characters. 
+                # This map value needs to be blown up to increase character dependence
+                # eg - square, *constant, etc.
                 nums.append(self.mapping[letter])
             # Do the math
             numerator=0 # summation holder
             k=0 # second summation holder
             for i in n:
                 l=i+1
+                # Difficulty iteration - l+=(l^nums[i]) to shift it by bitwise XOR
+                # Difficulty iteration - if maplen-l is positive, multiply by it ( weights in other direction)
                 numerator+=int(nums[i])*l
-                k+=int(nums[i])
+                # k+=int(nums[i]) # Difficulty iteration - fold the sum in based on even/odd?
             factor=numerator
             return factor
         except Exception as inst:
