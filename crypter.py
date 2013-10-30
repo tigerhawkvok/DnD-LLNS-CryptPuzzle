@@ -298,8 +298,13 @@ class Message:
             print("UNEXPECTED MUTATION ERROR:",inst)
             return None
 
-    def getHighestPrime(self,s):
+    def getHighestPrime(self,s=None):
         try:
+            if s is None:
+                if self.getFactor() is None:
+                    raise Exception("No argument provided and no key is set")
+                else:
+                    s=self.getFactor()
             c1=list()
             ref=list()
             r=range(2,s) # start at 2, lowest prime
