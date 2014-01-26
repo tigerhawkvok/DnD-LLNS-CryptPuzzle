@@ -1,7 +1,7 @@
 ## D&D Puzzle, Rewilding Campaign
 ## Initial draft: 2013.10.13, Philip Kahn
 ## https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle
-import math,re
+import math,re,pyperclip
 class Message:
     # Consider including numbers in map, newline.
     mapping = {
@@ -111,8 +111,13 @@ class Message:
                     for c in mc:
                         num=self.mutateLetter(c,factor)
                         q+=num
-                    self.cipher=q
-                    return q
+                    # Deal with the resultant encode
+                    self.cipher=q # Store in object
+                    print(q) # Display
+                    try:    
+                        pyperclip.copy(q) # Copy to clipboard
+                    except Exception:
+                        print("The value could not be copied to the clipboard.")
                 else:
                     raise Exception("No valid message to encrypt")
         except Exception as inst:
@@ -155,8 +160,12 @@ class Message:
                         q=''
                         for c in cb:
                             q+=self.mutateLetter(c,factor,False) # rotated inside here
-                        print(q)
                         self.message=q
+                        print(q)
+                        try:    
+                            pyperclip.copy(q) # Copy to clipboard
+                        except Exception:
+                            print("The value could not be copied to the clipboard.")
                     else:
                         raise Exception("No valid ciphertext to decrypt")
         except Exception as inst:
