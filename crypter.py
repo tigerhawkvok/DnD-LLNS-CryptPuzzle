@@ -55,7 +55,7 @@ class Message:
         # Initialization of class
         # Do clipboard stuff
         try:
-            import pyperclip
+            from pyperclip import pyperclip
             pyperclip.copy('Crytpo Puzzle')
             p=pyperclip.paste()
         except Exception as inst:
@@ -66,7 +66,7 @@ class Message:
                     print('Attempting to install the packaged xclip ...')
                     os.system('sudo apt-get install xclip')
                     try:
-                        import pyperclip
+                        from pyperclip import pyperclip
                         pyperclip.copy('Crytpo Puzzle')
                         p=pyperclip.paste()
                     except:
@@ -139,7 +139,7 @@ class Message:
                     self.cipher=q # Store in object
                     print(q) # Display
                     try:
-                        import pyperclip
+                        from pyperclip import pyperclip
                         pyperclip.copy(q) # Copy to clipboard
                     except Exception:
                         print("The value could not be copied to the clipboard.")
@@ -188,7 +188,7 @@ class Message:
                         self.message=q
                         print(q)
                         try:
-                            import pyperclip
+                            from pyperclip import pyperclip
                             pyperclip.copy(q) # Copy to clipboard
                         except Exception:
                             print("The value could not be copied to the clipboard.")
