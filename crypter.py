@@ -400,6 +400,10 @@ class Message:
         self.setCipher(*args)
     def setmessage(self,*args):
         self.setMessage(*args)
+    def setText(self,*args):
+        self.setMessage(*args)
+    def settext(self,*args):
+        self.setMessage(*args)
     def setkey(self,*args):
         self.setKey(*args)
 
