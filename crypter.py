@@ -1,7 +1,7 @@
 ## D&D Puzzle, Rewilding Campaign
 ## Initial draft: 2013.10.13, Philip Kahn
 ## https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle
-import math,re,pyperclip
+import math,re
 class Message:
     # Consider including numbers in map, newline.
     mapping = {
@@ -53,6 +53,28 @@ class Message:
 
     def __init__(self,val=None):
         # Initialization of class
+        # Do clipboard stuff
+        try:
+            import pyperclip
+            pyperclip.copy('Crytpo Puzzle')
+            p=pyperclip.paste()
+        except:
+            # If we're in Linux, we may need xclip installed
+            import os
+            try:
+                if os.uname()[0] == 'Linux':
+                    print('Attempting to install the packaged xclip ...')
+                    os.system('sudo apt-get install xclip')
+                    try:
+                        import pyperclip
+                        pyperclip.copy('Crytpo Puzzle')
+                        p=pyperclip.paste()
+                    except:
+                        print('Could not automatically install. Clipboard functions may not work correctly.')
+            except:
+                print('Clipboard functions may not work correctly on your setup')
+                if os.uname()[0] == 'Linux':
+                    print('Please make sure the package "xclip" is installed')
         self.key=None
         try:
             if val is None:
@@ -114,7 +136,8 @@ class Message:
                     # Deal with the resultant encode
                     self.cipher=q # Store in object
                     print(q) # Display
-                    try:    
+                    try:
+                        import pyperclip
                         pyperclip.copy(q) # Copy to clipboard
                     except Exception:
                         print("The value could not be copied to the clipboard.")
@@ -162,7 +185,8 @@ class Message:
                             q+=self.mutateLetter(c,factor,False) # rotated inside here
                         self.message=q
                         print(q)
-                        try:    
+                        try:
+                            import pyperclip
                             pyperclip.copy(q) # Copy to clipboard
                         except Exception:
                             print("The value could not be copied to the clipboard.")
