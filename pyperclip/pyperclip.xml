@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type='text/xsl' href='interface.xsl'?>
+<interface xmlns="http://zero-install.sourceforge.net/2004/injector/interface" uri="http://gfxmonk.net/dist/0install/pyperclip.xml">
+	<name>pyperclip</name>
+	<summary>A cross-platform clipboard module for Python</summary>
+	<publish xmlns="http://gfxmonk.net/dist/0install" mode="third-party"/>
+	<description>
+	A cross-platform clipboard module for Python
+	</description>
+	<homepage>http://coffeeghost.net/2010/10/09/pyperclip-a-cross-platform-clipboard-module-for-python/</homepage>
+	<group>
+		<requires interface="http://repo.roscidus.com/python/python"/>
+		<requires importance="recommended" interface="http://gfxmonk.net/dist/0install/xsel.xml"/>
+		<environment insert="" mode="prepend" name="PYTHONPATH"/>
+		<implementation id="sha1new=9f922be3879a4a9fef71a1e32a8ba4aac3c6d0c2" released="2012-04-02" version="1.3">
+			<manifest-digest sha256="2824fb5298ee3615d03ab7b9e6bafda3e4d2da57f8aa96e9503be67e076160da"/>
+			<archive href="http://gfxmonk.net/dist/0install/pyperclip/pyperclip-1.3.tgz" size="2110"/>
+		</implementation>
+	</group>
+	<group>
+		<requires interface="http://repo.roscidus.com/python/python"/>
+		<requires importance="recommended" interface="http://gfxmonk.net/dist/0install/xsel.xml"/>
+		<requires interface="http://gfxmonk.net/dist/0install/python-which.xml"/>
+		<environment insert="" mode="prepend" name="PYTHONPATH"/>
+		<implementation id="sha1new=2ab8daf00aebeb2542fa0ad387c9609212ec8c13" released="2012-04-03" version="1.4">
+			<manifest-digest sha256="e7893cd8686c1588e55a697f1d08e60840f0712ef8888bf2c9740ad07043f0af"/>
+			<archive href="http://gfxmonk.net/dist/0install/pyperclip/pyperclip-1.4.tgz" size="2214"/>
+		</implementation>
+	</group>
+	<group>
+		<requires interface="http://repo.roscidus.com/python/python"/>
+		<requires importance="recommended" interface="http://gfxmonk.net/dist/0install/xsel.xml"/>
+		<requires interface="http://gfxmonk.net/dist/0install/python-which.xml"/>
+		<command name="run" path="pyperclip.py">
+			<runner interface="http://repo.roscidus.com/python/python"/>
+		</command>
+		<command name="test" path="test_pyperclip.sh">
+			<environment insert="" mode="prepend" name="PATH"/>
+			<runner interface="http://gfxmonk.net/dist/0install/ephemeral-x.xml"/>
+		</command>
+		<environment insert="" mode="prepend" name="PYTHONPATH"/>
+		<implementation id="sha1new=00c2c51c68273d47eb96c5145c2e48982d6bf357" released="2012-04-17" version="1.5">
+			<manifest-digest sha256="fc28e87d0e99f432e6fed1f0d36ba2d22f0a40826917a271621578a5b0f16b9b"/>
+			<archive href="http://gfxmonk.net/dist/0install/pyperclip/pyperclip-1.5.tgz" size="2883"/>
+		</implementation>
+		<implementation id="sha1new=8eca5c09360279258c6da388a4653254c64db7f7" released="2012-06-04" version="1.5.1">
+			<manifest-digest sha256="3f0fd6b4e9b74284f2e4f2d96938af25ecd10c53d837a445ef80c1f74f6ae0e3"/>
+			<archive href="http://gfxmonk.net/dist/0install/pyperclip/pyperclip-1.5.1.tgz" size="2898"/>
+		</implementation>
+		<implementation id="sha1new=5bc58409bd5ed85fd4a07ca5141b720d614df154" released="2012-12-18" version="1.5.2">
+			<manifest-digest sha256="b8b79312ec27629910803efc9fe5efab1e53d0d7eebb492d3806a61b2b38f9c6"/>
+			<archive href="http://gfxmonk.net/dist/0install/pyperclip/pyperclip-1.5.2.tgz" size="2888"/>
+		</implementation>
+		<implementation id="sha1new=07bef138c5254423a6999ea54a5bdd258ab6489e" released="2013-07-08" version="1.5.3">
+			<manifest-digest sha256new="QLWWBUJHACQQBTCU2TP2G2BJUVQT3HSJL7CJLT2NL5XBNGZTK4GA"/>
+			<archive href="http://gfxmonk.net/dist/0install/pyperclip/pyperclip-1.5.3.tgz" size="2873"/>
+		</implementation>
+	</group>
+</interface>
