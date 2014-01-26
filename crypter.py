@@ -58,7 +58,7 @@ class Message:
             import pyperclip
             pyperclip.copy('Crytpo Puzzle')
             p=pyperclip.paste()
-        except:
+        except Exception as inst:
             # If we're in Linux, we may need xclip installed
             import os
             try:
@@ -71,6 +71,8 @@ class Message:
                         p=pyperclip.paste()
                     except:
                         print('Could not automatically install. Clipboard functions may not work correctly.')
+                else:
+                    print('ERROR: Could not enable clipboard functions - ',inst)
             except:
                 print('Clipboard functions may not work correctly on your setup')
                 if os.uname()[0] == 'Linux':
