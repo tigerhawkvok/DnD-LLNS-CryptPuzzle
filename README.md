@@ -11,13 +11,13 @@ Good local `*.md` viewer is [MarkView for Chrome](https://chrome.google.com/webs
 
 There are currently no active ciphers to decode.
 
-[Part 1 decrypted puzzles]()
+[Part 1 decrypted puzzles](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/blob/master/Part1_Decrypted.md)
 
 You can find the original context, and latest original version [over here in the history](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/tree/aaf57a871fcea402a9fbe1a313d51dbc8b65ddf5). It'll be helpful if you need a refresher.
 
 Here is the original puzzle, which is the second note you found (in Ercrain's room): [Note1.md](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/blob/master/Note1.md)
 
-Here is the second puzzle, or the first one you found: [Note2.md]()
+Here is the second puzzle, or the first one you found: [Note2.md](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/blob/master/Note2.md)
 
 
 ## Help
