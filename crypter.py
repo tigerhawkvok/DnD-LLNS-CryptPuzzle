@@ -75,8 +75,10 @@ class Message:
                     print('ERROR: Could not enable clipboard functions - ',inst)
             except:
                 print('Clipboard functions may not work correctly on your setup')
-                if os.uname()[0] == 'Linux':
-                    print('Please make sure the package "xclip" is installed')
+                try:
+                    if os.uname()[0] == 'Linux':
+                        print('Please make sure the package "xclip" is installed')
+                except: pass
         self.key=None
         try:
             if val is None:
