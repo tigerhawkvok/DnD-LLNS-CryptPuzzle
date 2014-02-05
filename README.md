@@ -1,8 +1,6 @@
 D&D Puzzle for The Southern Misfits
 ===================================
 
-, or if (Luanne!) you haven't solved it.
-
 The use of this cipher will slowly morph over time as the creators "improve" their algorithm, or if they suspect that you guys have broken it, but [the old behaviour is still accessible](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle#using-old-versions-of-the-program).
 
 Good local `*.md` viewer is [MarkView for Chrome](https://chrome.google.com/webstore/detail/markview/iaddkimmopgchbbnmfmdcophmlnghkim) which parses "Github-Flavored Markdown", unlike the last one I linked.
