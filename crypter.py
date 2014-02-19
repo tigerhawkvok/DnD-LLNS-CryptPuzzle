@@ -63,14 +63,14 @@ class Message:
             import os
             try:
                 if os.uname()[0] == 'Linux':
-                    print('Attempting to install the packaged xclip ...')
+                    print('Attempting to install the package xclip ...')
                     os.system('sudo apt-get install xclip')
                     try:
                         from pyperclip import pyperclip
                         pyperclip.copy('Crytpo Puzzle')
                         p=pyperclip.paste()
                     except:
-                        print('Could not automatically install. Clipboard functions may not work correctly.')
+                        print('Could not automatically install xclip. Clipboard functions may not work correctly.')
                 else:
                     print('ERROR: Could not enable clipboard functions - ',inst)
             except:
