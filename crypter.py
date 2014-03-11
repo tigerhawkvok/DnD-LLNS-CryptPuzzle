@@ -423,6 +423,35 @@ class Message:
             print("ERROR:",inst)
             return None
 
+    def generate(self):
+        # Generate HTML based on the images from the various puzzles to make an in-universe example
+        # Hex will be 0-6, then the first ten phonetic characters to represent base 16
+        try:
+            if self.cipher is None:
+                if self.message is None:
+                    raise Exception("No message or ciphertext")
+                elif self.key is None:
+                    raise Exception("No key set to encode message")
+                else:
+                    self.encode()
+        # Do a map of character to files
+            import time
+            fname = "generated/generated_output-"+str(int(time.time()))+".xht"
+            f = open(fname,'w')
+            output = "<?xml version='1.0' encoding='utf-8' ?>\n<!DOCTYPE html>\n<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en'>\n\t<head>\n\t\t<title></title>\n\t\t<style type='text/css'>\n\t\t\timg { display:inline-block; max-width:1.5em;}\n\t\t</style>\n\t</head>\n\t<body>\n\t\t<!--Begin Ciphertext-->"
+            for char in self.cipher:
+                # Take each char, and map it onto an img resource
+                x = int(char,16)
+                html = "\n\t\t<img src='assets/"+str(x)+".png'/>"
+                output+= html
+            output += "\n\t\t<!--End Ciphertext--><!-- DM Solution: \""+self.message+"\"-->\n\t</body>\n</html>"
+            f.write(output)
+            f.close()
+            print("Output written to",fname)
+        except Exception as inst:
+            print("GENERATE ERROR:", inst)
+            return None
+
     ## Alternate definitions
     def setcipher(self,*args):
         self.setCipher(*args)
