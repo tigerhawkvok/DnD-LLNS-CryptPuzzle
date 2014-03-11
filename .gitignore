@@ -216,3 +216,7 @@ pip-log.txt
 
 # Emacs temp
 \#*
+
+# Ignore the output files and working files
+ *.psd
+ *.xht
