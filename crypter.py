@@ -434,6 +434,8 @@ class Message:
                     raise Exception("No key set to encode message")
                 else:
                     self.encode()
+            else:
+                print("Using stored ciphertext - if this isn't intentional, run encode() then run this again.")
         # Do a map of character to files
             import time
             fname = "generated/generated_output-"+str(int(time.time()))+".xht"
@@ -444,7 +446,7 @@ class Message:
                 x = int(char,16)
                 html = "\n\t\t<img src='assets/"+str(x)+".png'/>"
                 output+= html
-            output += "\n\t\t<!--End Ciphertext--><!-- DM Solution: \""+self.message+"\"-->\n\t</body>\n</html>"
+            output += "\n\t\t<!--End Ciphertext--><!-- DM Solution: \""+self.message+"\" with key \""+self.key+"\"-->\n\t</body>\n</html>"
             f.write(output)
             f.close()
             print("Output written to",fname)
