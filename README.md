@@ -1,19 +1,28 @@
 D&D Puzzle for The Southern Misfits
 ===================================
 
-The use of this cipher will slowly morph over time as the creators "improve" their algorithm, or if they suspect that you guys have broken it, but [the old behaviour is still accessible](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle#using-old-versions-of-the-program).
+The use of this cipher will slowly morph over time as the creators "improve" their algorithm, or if they suspect that you guys have broken it, but [the old behaviour is still accessible](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle#using-old-versions-of-the-program). You can [download the current version here](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/archive/master.zip).
 
 Good local `*.md` viewer is [MarkView for Chrome](https://chrome.google.com/webstore/detail/markview/iaddkimmopgchbbnmfmdcophmlnghkim) which parses "Github-Flavored Markdown", unlike the last one I linked.
 
 ## Story Context
 
-There are currently no active ciphers to decode.
+### Current Message
+
+The most recent result was given to you by Clathar at the Western Enclave, found on a large bird that was *Magic Missile*d down by a low level scout under his command. [You can read it here.](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/blob/master/Note3.md)
+
+
+### Part 1 Puzzles
 
 [Part 1 decrypted puzzles](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/blob/master/Part1_Decrypted.md)
 
-You can find the original context, and latest original version [over here in the history](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/tree/aaf57a871fcea402a9fbe1a313d51dbc8b65ddf5). It'll be helpful if you need a refresher.
+#### Ercrain's Note (Puzzle 1)
 
 Here is the original puzzle, which is the second note you found (in Ercrain's room): [Note1.md](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/blob/master/Note1.md)
+
+You can find the original context, and latest original version [over here in the history](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/tree/aaf57a871fcea402a9fbe1a313d51dbc8b65ddf5). It'll be helpful if you need a refresher.
+
+#### Message to Ercrain re: Akresh, Skozzin (Puzzle 2)
 
 Here is the second puzzle, or the first one you found: [Note2.md](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/blob/master/Note2.md)
 
