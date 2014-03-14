@@ -1,5 +1,7 @@
 # Simple wrapper to let them interact at the command prompt
 from crypter import Message
+# From https://gist.github.com/eallik/6751903
+
 
 ## If it doesn't exist, create a file saving the time as format:
 ## 2013-10-13T21:02:38Z
@@ -33,16 +35,8 @@ try:
     push_time = time.strptime(time_key,"%Y-%m-%dT%H:%M:%SZ")
     this_time = time.gmtime(float(read_seconds))
     if push_time > this_time:
-        try:
-            do_update = raw_input("Your version is out of date with GitHub. Do you want visit GitHub and download a new version? [y/n]: ")
-        except NameError:
-            do_update = input("Your version is out of date with GitHub. Do you want visit GitHub and download a new version? [y/n]: ")
-        while do_update.lower() != "y" and do_update.lower() != "n":
-            try:
-                do_update = raw_input("Please enter 'y' or 'n': ")
-            except NameError:
-                do_update = input("Please enter 'y' or 'n': ")
-        if do_update == "y":
+        import yn
+        if yn.yn("Your version is out of date with GitHub. Do you want visit GitHub and download a new version?"):
             import os
             try:
                 os.unlink(".gitversion")
