@@ -1,6 +1,12 @@
 D&D Puzzle for The Southern Misfits
 ===================================
 
+## Cross-Platform issues
+
+I've tried to add a cross-platform implementation of `getch()`. It should work, but if it doesn't, let me know or [update the code on this Gist](https://gist.github.com/tigerhawkvok/9542594)
+
+## Introduction
+
 The use of this cipher will slowly morph over time as the creators "improve" their algorithm, or if they suspect that you guys have broken it, but [the old behaviour is still accessible](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle#using-old-versions-of-the-program). You can [download the current version here](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/archive/master.zip).
 
 Good local `*.md` viewer is [MarkView for Chrome](https://chrome.google.com/webstore/detail/markview/iaddkimmopgchbbnmfmdcophmlnghkim) which parses "Github-Flavored Markdown", unlike the last one I linked.
