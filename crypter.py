@@ -67,7 +67,7 @@ class Message:
                         install_xclip = raw_input("For clipboard functions, xclip is needed. Do you want to install now? [y/n]: ")
                     except NameError:
                         install_xclip = input("For clipboard functions, xclip is needed. Do you want to install now? [y/n]: ")
-                    while install_xclip.lower() != ("y" or "n"):
+                    while install_xclip.lower() != "y" and install_xclip.lower() != "n":
                         try:
                             install_xclip = raw_input("Please enter 'y' or 'n': ")
                         except NameError:

@@ -37,7 +37,7 @@ try:
             do_update = raw_input("Your version is out of date with GitHub. Do you want visit GitHub and download a new version? [y/n]: ")
         except NameError:
             do_update = input("Your version is out of date with GitHub. Do you want visit GitHub and download a new version? [y/n]: ")
-        while do_update.lower() != ("y" or "n"):
+        while do_update.lower() != "y" and do_update.lower() != "n":
             try:
                 do_update = raw_input("Please enter 'y' or 'n': ")
             except NameError:
