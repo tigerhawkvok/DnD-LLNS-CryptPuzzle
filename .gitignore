@@ -220,3 +220,4 @@ pip-log.txt
 # Ignore the output files and working files
 *.psd
 *.xht
+.gitversion
