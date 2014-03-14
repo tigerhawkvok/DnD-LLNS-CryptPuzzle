@@ -1,7 +1,11 @@
 # Simple wrapper to let them interact at the command prompt
 from crypter import Message
-# From https://gist.github.com/eallik/6751903
 
+def doExit():
+    import os,sys
+    print("\n")
+    os._exit(0)
+    sys.exit(0)
 
 ## If it doesn't exist, create a file saving the time as format:
 ## 2013-10-13T21:02:38Z
@@ -35,6 +39,7 @@ try:
     push_time = time.strptime(time_key,"%Y-%m-%dT%H:%M:%SZ")
     this_time = time.gmtime(float(read_seconds))
     if push_time > this_time:
+        # From https://gist.github.com/tigerhawkvok/9542594
         import yn
         if yn.yn("Your version is out of date with GitHub. Do you want visit GitHub and download a new version?"):
             import os
@@ -45,10 +50,7 @@ try:
             print("Launching browser. Rerun the script when you've updated.")
             import webbrowser
             webbrowser.open("https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle")
-            os._exit(0)
-            # Just in case
-            import sys
-            sys.exit(0)
+            doExit()
         else:
             print("Skipping update.")
 
@@ -72,9 +74,7 @@ except NameError:
         os._exit(0)
         sys.exit(0)
 except KeyboardInterrupt:
-    import os,sys
-    os._exit(0)
-    sys.exit(0)
+    doExit()
     
 
 m=Message(string)
