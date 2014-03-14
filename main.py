@@ -68,8 +68,20 @@ except Exception as inst:
 
 
 print("For use instructions and available commands, please see README.md in the same folder.")
-try: string=raw_input("Please input the message or ciphertext you'd like to start with for message 'm': ") 
-except NameError: string=input("Please input the message or ciphertext you'd like to start with for message 'm': ")
+try:
+    string=raw_input("Please input the message or ciphertext you'd like to start with for message 'm': ") 
+except NameError:
+    try:
+        string=input("Please input the message or ciphertext you'd like to start with for message 'm': ")
+    except KeyboardInterrupt:
+        import os,sys
+        os._exit(0)
+        sys.exit(0)
+except KeyboardInterrupt:
+    import os,sys
+    os._exit(0)
+    sys.exit(0)
+    
 
 m=Message(string)
 
