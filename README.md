@@ -3,7 +3,7 @@ D&D Puzzle for The Southern Misfits
 
 ## Cross-Platform issues
 
-I've tried to add a cross-platform implementation of `getch()`. It should work, but if it doesn't, let me know or [update the code on this Gist](https://gist.github.com/tigerhawkvok/9542594)
+I've tried to add a cross-platform implementation of `getch()`. It should work, but if it doesn't, let me know or [update the code on this Gist](https://gist.github.com/tigerhawkvok/9542594), and [instead download the code from this commit](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/tree/d08dc656150ebec2bb1c340b581e54e960d515d3).
 
 ## Introduction
 
