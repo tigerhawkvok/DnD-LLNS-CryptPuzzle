@@ -43,16 +43,18 @@ try:
             except NameError:
                 do_update = input("Please enter 'y' or 'n': ")
         if do_update == "y":
+            import os
             try:
-                import os
                 os.unlink(".gitversion")
             except:
                 print("Could not delete the version file. Be sure to maually delete '.gitversion' before re-running the new version.")
             print("Launching browser. Rerun the script when you've updated.")
             import webbrowser
             webbrowser.open("https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle")
+            os._exit(0)
+            # Just in case
             import sys
-            sys.exit()
+            sys.exit(0)
         else:
             print("Skipping update.")
 
