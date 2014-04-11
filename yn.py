@@ -1,3 +1,11 @@
+# Format the yes/no input.
+# To use:
+# import yn
+# var = yn.yn("string")
+# Automatically appends the [Y/N] prompt to the end.
+#
+# https://gist.github.com/tigerhawkvok/9542594
+
 class _yn:
     """Give a prompt for [Y/N] and returns the appropriate boolean"""
     def __init__(self):
@@ -6,10 +14,19 @@ class _yn:
         except ImportError:
             print("This package requires getch to function. Be sure it's in the load path!")
         
-    def __call__(self,string=None):
-        return self.yn_input(string)
+    def __call__(self,*args):
+        return self.yn_input(*args)
 
-    def yn_input(self,string=None):
+    def yn_input(self,*args):
+        string = None
+        first_piece = True
+        for piece in args:
+            if not first_piece:
+                string+=" "
+            else:
+                first_piece = False
+                string = ""
+            string+=str(piece)
         if string is not None:
             try:
                 print(string+" [Y/N]")

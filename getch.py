@@ -1,3 +1,12 @@
+## Taken from http://code.activestate.com/recipes/134892/
+## Brought to Github for better versioning / editing / updating
+## Returns a string (as input() or raw_input() )
+## Use:
+# import getch
+# c = getch.getch()
+#
+# https://gist.github.com/tigerhawkvok/9542594
+
 class _Getch:
     """Gets a single character from standard input.  Does not echo to the
     screen."""

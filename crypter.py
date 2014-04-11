@@ -216,7 +216,8 @@ class Message:
             for letter in chars:
                 # Difficulty iteration - reduce light dependence on early characters. 
                 # This map value needs to be blown up to increase character dependence
-                # eg - square, *constant, etc.
+                # For map value M, change self.mapping[letter] to self.mapping[letter]*(((self.mapping[letter])^2*i^2)%N)+1
+                # Where N is ~10 (pick a non-arbitrary choice)
                 nums.append(self.mapping[letter])
             # Do the math
             numerator=0 # summation holder

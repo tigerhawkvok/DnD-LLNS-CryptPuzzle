@@ -70,9 +70,7 @@ except NameError:
     try:
         string=input("Please input the message or ciphertext you'd like to start with for message 'm': ")
     except KeyboardInterrupt:
-        import os,sys
-        os._exit(0)
-        sys.exit(0)
+        doExit()
 except KeyboardInterrupt:
     doExit()
     
