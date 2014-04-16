@@ -7,6 +7,59 @@ def doExit():
     os._exit(0)
     sys.exit(0)
 
+# Write some cheats to let codes and decodes and such work without calling the object.
+
+def encode(*args):
+    # See if object "m" exists; if so, call m.encode()
+    try:
+        m
+    except NameError:
+        # Handle the exception
+        print("The message object 'm' is not defined. Please call encode() directly on your object.")
+    else:
+        m.encode(*args)
+
+def decode(*args):
+    # See if object "m" exists; if so, call m.encode()
+    try:
+        m
+    except NameError:
+        # Handle the exception
+        print("The message object 'm' is not defined. Please call decode() directly on your object.")
+    else:
+        m.decode(*args)
+
+def setKey(*args):
+    # See if object "m" exists; if so, call m.encode()
+    try:
+        m
+    except NameError:
+        # Handle the exception
+        print("The message object 'm' is not defined. Please call setKey() directly on your object.")
+    else:
+        m.setKey(*args)
+
+def setCipher(*args):
+    # See if object "m" exists; if so, call m.encode()
+    try:
+        m
+    except NameError:
+        # Handle the exception
+        print("The message object 'm' is not defined. Please call setCipher() directly on your object.")
+    else:
+        m.setCipher(*args)
+
+def setMessage(*args):
+    # See if object "m" exists; if so, call m.encode()
+    try:
+        m
+    except NameError:
+        # Handle the exception
+        print("The message object 'm' is not defined. Please call setMessage() directly on your object.")
+    else:
+        m.setMessage(*args)
+
+        
 ## If it doesn't exist, create a file saving the time as format:
 ## 2013-10-13T21:02:38Z
 ## Then compare the time to the time provided at the key "pushed_at" at

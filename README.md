@@ -103,7 +103,9 @@ When you run the program, the following commands are available to you:
 >>> m.encode('key','here is a new plaintext')
 # Outputs ciphertext from the new plaintext with the given key
 >>> m.encode()
+>>> encode()
 # Ouputs ciphertext using the stored plaintext and stored key
+# You can cheat and encode and decode on the default object 'm' without using it
 >>> m.setKey('a new key')
 # Saves the key, returns nothing
 >>> m.setMessage('a new message')
