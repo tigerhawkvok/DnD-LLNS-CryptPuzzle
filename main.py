@@ -106,8 +106,11 @@ try:
             doExit()
         else:
             print("Skipping update.")
-
+except NamError:
+    # In all likelihood, time_key wasn't defined because of an earlier error
+    print("Skipping update process")
 except FileNotFoundError:
+    # It doesn't exist, so create it
     f = open(".gitversion","w")
     read_seconds = time.time()
     f.write(str(read_seconds))
