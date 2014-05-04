@@ -20,7 +20,6 @@ def encode(*args):
         m.encode(*args)
 
 def decode(*args):
-    # See if object "m" exists; if so, call m.encode()
     try:
         m
     except NameError:
@@ -30,7 +29,6 @@ def decode(*args):
         m.decode(*args)
 
 def setKey(*args):
-    # See if object "m" exists; if so, call m.encode()
     try:
         m
     except NameError:
@@ -40,7 +38,6 @@ def setKey(*args):
         m.setKey(*args)
 
 def setCipher(*args):
-    # See if object "m" exists; if so, call m.encode()
     try:
         m
     except NameError:
@@ -50,7 +47,6 @@ def setCipher(*args):
         m.setCipher(*args)
 
 def setMessage(*args):
-    # See if object "m" exists; if so, call m.encode()
     try:
         m
     except NameError:
@@ -58,6 +54,13 @@ def setMessage(*args):
         print("The message object 'm' is not defined. Please call setMessage() directly on your object.")
     else:
         m.setMessage(*args)
+
+def setkey(*args):
+    setKey(*args)
+def setcipher(*args):
+    setCipher(*args)
+def setmessage(*args):
+    setMessage(*args)
 
         
 ## If it doesn't exist, create a file saving the time as format:
