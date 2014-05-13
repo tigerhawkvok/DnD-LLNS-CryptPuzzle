@@ -72,16 +72,16 @@ try:
     try:
         # Python 2.7.x
         import urllib
-        url = urllib.urlopen("https://api.github.com/repos/tigerhawkvok/DnD-LLNS-CryptPuzzle")
+        url = urllib.urlopen("https://api.github.com/repos/tigerhawkvok/DnD-LLNS-CryptPuzzle/releases")
         obj_raw = url.read()
         url.close()
     except AttributeError:
         # Python 3
         import urllib.request
-        with urllib.request.urlopen("https://api.github.com/repos/tigerhawkvok/DnD-LLNS-CryptPuzzle") as url:
+        with urllib.request.urlopen("https://api.github.com/repos/tigerhawkvok/DnD-LLNS-CryptPuzzle/releases") as url:
             obj_raw = url.read()
     obj = json.loads(obj_raw)
-    time_key = obj['pushed_at']
+    time_key = obj['published_at']
 except Exception as inst:
     print("Warning: Could not check remote version.",inst)
         
