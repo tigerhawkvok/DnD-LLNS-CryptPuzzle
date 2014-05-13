@@ -62,29 +62,130 @@ def setcipher(*args):
 def setmessage(*args):
     setMessage(*args)
 
-        
+def loadURL(http_addr,header = {}):
+    try:
+        import urllib
+        try:
+            # Python 2.7.x
+            url = urllib.urlopen(http_addr)
+            obj_raw = url.read()
+            url.close()
+        except AttributeError:
+            # Python 3
+            import urllib.request
+            request = urllib.request.Request(http_addr,None,header)
+            with urllib.request.urlopen(request) as url:
+                obj_raw = url.read()
+    except urllib.error.URLError:
+        # Bad url
+        print("Bad URL - ",http_addr)
+        return False
+    except urllib.error.HTTPError as inst:
+        print(inst)
+        return False
+    except Exception as inst:
+        print("Unhandled exception getting URL",inst)
+        return False
+    return obj_raw
+    
+def loadPuzzle(noteID = None):
+    # Load the raw puzzle text as denoted by the id
+    # https://developer.github.com/v3/repos/contents/#custom-media-types
+    try:
+        noteID = float(noteID)
+    except ValueError:
+        if noteID != "":
+            print("Invalid note ID. Reading newest...")
+        noteID = None
+    except TypeError:
+        print("Getting newest note...")
+    path = "https://api.github.com/repos/tigerhawkvok/DnD-LLNS-CryptPuzzle/contents/raw/"
+    # Get the current list ...
+    listing_byte = loadURL(path)
+    if listing_byte is False:
+        print("Unable to load note.")
+        return False
+    listing = listing_byte.decode("utf-8")
+    try:
+        import simplejson as json
+    except ImportError:
+        import json
+    l = json.loads(listing)
+    newest = 0
+    newest_name = None
+    puzzle_name = None
+    for f in l:
+        if noteID is not None:
+            try:
+                if noteID == float(f['name']):
+                    puzzle_name = f['name']
+                    print("Found puzzle",puzzle_name)
+                    break
+            except:
+                pass
+        try:
+            if float(f['name']) > newest:
+                newest = float(f['name'])
+                newest_name = f['name']
+        except:
+            pass
+    if puzzle_name is None:
+        puzzle_name = newest_name
+        print("Loading note ",puzzle_name)
+    # https://developer.github.com/v3/media/
+    api_version = "v3"
+    media_type = " application/vnd.github."+api_version+".raw+json"
+    header = {"Accept":media_type}
+    file_path = path+puzzle_name
+    obj_raw = loadURL(file_path,header)
+    # It's a bytestream, translate:
+    text = obj_raw.decode("utf-8")
+    # Strip new lines -- remove this when new lines are handled better.
+    output = text.replace("\n","")
+    return output
+
+def getPuzzle(noteID = None):
+    string = loadPuzzle(noteID)
+    from crypter import Message
+    global m
+    try:
+        # Assign if possible ..
+        m = Message(string)
+    except NameError:
+        # Otherwise, return it
+        return Message(string)
+    
+
+######################
+## Main Loop
+######################
+
 ## If it doesn't exist, create a file saving the time as format:
 ## 2013-10-13T21:02:38Z
 ## Then compare the time to the time provided at the key "pushed_at" at
 ## https://api.github.com/repos/tigerhawkvok/DnD-LLNS-CryptPuzzle
 try:
-    import simplejson as json
     try:
-        # Python 2.7.x
-        import urllib
-        url = urllib.urlopen("https://api.github.com/repos/tigerhawkvok/DnD-LLNS-CryptPuzzle/releases")
-        obj_raw = url.read()
-        url.close()
-    except AttributeError:
-        # Python 3
-        import urllib.request
-        with urllib.request.urlopen("https://api.github.com/repos/tigerhawkvok/DnD-LLNS-CryptPuzzle/releases") as url:
-            obj_raw = url.read()
-    obj = json.loads(obj_raw)
-    time_key = obj['published_at']
+        import simplejson as json
+    except ImportError:
+        import json
+    obj_raw = loadURL("https://api.github.com/repos/tigerhawkvok/DnD-LLNS-CryptPuzzle/releases")
+    if obj_raw is False:
+        raise Exception()
+    try:
+        # This just works with the simplejson library
+        obj = json.loads(obj_raw)
+    except TypeError:
+        # Do the conversion otherwise
+        obj_raw = obj_raw.decode("utf-8")
+        obj = json.loads(obj_raw)[0]
+    try:
+        time_key = obj['published_at']
+    except TypeError:
+        time_key = obj[0]['published_at']
 except Exception as inst:
     print("Warning: Could not check remote version.",inst)
-        
+
 import time
 try:
     f = open(".gitversion")
@@ -105,11 +206,11 @@ try:
                 print("Could not delete the version file. Be sure to maually delete '.gitversion' before re-running the new version.")
             print("Launching browser. Rerun the script when you've updated.")
             import webbrowser
-            webbrowser.open("https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle")
+            webbrowser.open("https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/releases")
             doExit()
         else:
             print("Skipping update.")
-except NamError:
+except NameError:
     # In all likelihood, time_key wasn't defined because of an earlier error
     print("Skipping update process")
 except FileNotFoundError:
@@ -124,7 +225,7 @@ except Exception as inst:
 
 print("For use instructions and available commands, please see README.md in the same folder.")
 try:
-    string=raw_input("Please input the message or ciphertext you'd like to start with for message 'm': ") 
+    string=raw_input("Please input the message or ciphertext you'd like to start with for message 'm': ")
 except NameError:
     try:
         string=input("Please input the message or ciphertext you'd like to start with for message 'm': ")
@@ -132,7 +233,10 @@ except NameError:
         doExit()
 except KeyboardInterrupt:
     doExit()
-    
 
-m=Message(string)
-
+if string[:10] == "getPuzzle(":
+    n = string[10:-1]
+    m = None
+    getPuzzle(n)
+else:
+    m=Message(string)

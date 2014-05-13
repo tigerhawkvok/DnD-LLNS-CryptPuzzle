@@ -1,6 +1,14 @@
 D&D Puzzle for The Southern Misfits
 ===================================
 
+## New Function!
+
+I've made life easy for you guys. If you want to load a specific puzzle version, when the message is asked to be input, just input `getPuzzle(NUMBER)`, where `NUMBER` is the number of the puzzle. For multipart puzzles, the subsequent parts are like "2.1" or "1.1".
+
+If you want to load the newest puzzle, it's easier still. Just input `getPuzzle()`:
+
+<!-- Image -->
+
 ## Cross-Platform issues
 
 I've tried to add a cross-platform implementation of `getch()`. It should work, but if it doesn't, let me know or [update the code on this Gist](https://gist.github.com/tigerhawkvok/9542594), and [instead download the code from this commit](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/tree/d08dc656150ebec2bb1c340b581e54e960d515d3).
