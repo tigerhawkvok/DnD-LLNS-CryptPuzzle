@@ -131,7 +131,7 @@ def loadPuzzle(noteID = None):
             pass
     if puzzle_name is None:
         puzzle_name = newest_name
-        print("Loading note ",puzzle_name)
+        print("Loading Note #",puzzle_name)
     # https://developer.github.com/v3/media/
     api_version = "v3"
     media_type = " application/vnd.github."+api_version+".raw+json"
