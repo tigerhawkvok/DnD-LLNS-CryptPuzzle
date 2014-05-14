@@ -64,25 +64,35 @@ def setmessage(*args):
 
 def loadURL(http_addr,header = {}):
     try:
-        import urllib
         try:
             # Python 2.7.x
-            url = urllib.urlopen(http_addr)
-            obj_raw = url.read()
-            url.close()
-        except AttributeError:
-            # Python 3
-            import urllib.request
-            request = urllib.request.Request(http_addr,None,header)
-            with urllib.request.urlopen(request) as url:
+            import urllib2
+            try:
+                request = urllib2.Request(http_addr,None,header)
+                url = urllib2.urlopen(request)
                 obj_raw = url.read()
-    except urllib.error.URLError:
-        # Bad url
-        print("Bad URL - ",http_addr)
-        return False
-    except urllib.error.HTTPError as inst:
-        print(inst)
-        return False
+                url.close()
+            except urllib2.URLError:
+                # Bad url
+                print("Bad URL - ",http_addr)
+                return False
+            except urllib2.HTTPError as inst:
+                print(inst)
+                return False
+        except ImportError:
+            # Python 3
+            try:
+                import urllib.request
+                request = urllib.request.Request(http_addr,None,header)
+                with urllib.request.urlopen(request) as url:
+                    obj_raw = url.read()
+            except urllib.error.URLError:
+                # Bad url
+                print("Bad URL - ",http_addr)
+                return False
+            except urllib.error.HTTPError as inst:
+                print(inst)
+                return False
     except Exception as inst:
         print("Unhandled exception getting URL",inst)
         return False
@@ -145,7 +155,7 @@ def loadPuzzle(noteID = None):
     return output
 
 def getPuzzle(noteID = None):
-    string = loadPuzzle(noteID)
+    string = str(loadPuzzle(noteID))
     from crypter import Message
     global m
     try:
@@ -162,12 +172,13 @@ def getPuzzle(noteID = None):
 
 ## If it doesn't exist, create a file saving the time as format:
 ## 2013-10-13T21:02:38Z
-## Then compare the time to the time provided at the key "pushed_at" at
-## https://api.github.com/repos/tigerhawkvok/DnD-LLNS-CryptPuzzle
+## Then compare the time to the time provided at the key "published_at" at
+## https://api.github.com/repos/tigerhawkvok/DnD-LLNS-CryptPuzzle/releases
 try:
     try:
         import simplejson as json
     except ImportError:
+        # Is it worth calling pip here? simplejson is probably more robust ...
         import json
     obj_raw = loadURL("https://api.github.com/repos/tigerhawkvok/DnD-LLNS-CryptPuzzle/releases")
     if obj_raw is False:
