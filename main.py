@@ -181,8 +181,11 @@ try:
         obj = json.loads(obj_raw)[0]
     try:
         time_key = obj['published_at']
+        title = obj['tag_name']+" - "+obj['name']
     except TypeError:
-        time_key = obj[0]['published_at']
+        obj = obj[0]
+        time_key = obj['published_at']
+        title = obj['tag_name']+" - "+obj['name']
 except Exception as inst:
     print("Warning: Could not check remote version.",inst)
 
@@ -198,6 +201,8 @@ try:
     if push_time > this_time:
         # From https://gist.github.com/tigerhawkvok/9542594
         import yn
+        print("New version available!")
+        print(title)
         if yn.yn("Your version is out of date with GitHub. Do you want visit GitHub and download a new version?"):
             import os
             try:
@@ -206,6 +211,7 @@ try:
                 print("Could not delete the version file. Be sure to maually delete '.gitversion' before re-running the new version.")
             print("Launching browser. Rerun the script when you've updated.")
             import webbrowser
+            # Can probably download this ...
             webbrowser.open("https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/releases")
             doExit()
         else:
@@ -221,6 +227,7 @@ except FileNotFoundError:
     f.close()
 except Exception as inst:
     print("WARNING: Could not check version.",inst)
+    print("The current version is ",title)
 
 
 print("For use instructions and available commands, please see README.md in the same folder.")

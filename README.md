@@ -8,6 +8,7 @@ I've made life easy for you guys. If you want to load a specific puzzle version,
 If you want to load the newest puzzle, it's easier still. Just input `getPuzzle()`:
 
 <!-- Image -->
+<img src="https://raw.githubusercontent.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/master/helper/getpuzz_samp.png" alt="Sample Screenshot" style="text-align:center;margin:0 auto"/>
 
 ## Cross-Platform issues
 
