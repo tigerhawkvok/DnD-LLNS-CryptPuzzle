@@ -427,6 +427,34 @@ class Message:
             print("ERROR:",inst)
             return None
 
+    def export(self):
+        # Export the ciphertext to /raw
+        try:
+            if self.cipher is None:
+                if self.message is None:
+                    raise Exception("No message or ciphertext")
+                elif self.key is None:
+                    raise Exception("No key set to encode message")
+                else:
+                    self.encode()
+            try:
+                string=raw_input("Please enter the exported Note ID")
+            except NameError:
+                string=input("Please enter the exported Note ID")
+            if string == "":
+                raise Exception("No Note ID provided")
+            try:
+                float(string)
+            except ValueError:
+                raise Exception("Invalid Note ID")
+            fname = "raw/"+string
+            f = open(fname,'w')
+            f.write(self.cipher)
+            f.close()
+            print("Ciphertext written to",fname)
+        except Exception as inst:
+            print("EXPORT ERROR: Could not export ciphertext - ",inst)
+        
     def generate(self):
         # Generate HTML based on the images from the various puzzles to make an in-universe example
         # Hex will be 0-6, then the first ten phonetic characters to represent base 16
@@ -454,6 +482,7 @@ class Message:
             f.write(output)
             f.close()
             print("Output written to",fname)
+            self.export()
         except Exception as inst:
             print("GENERATE ERROR:", inst)
             return None
