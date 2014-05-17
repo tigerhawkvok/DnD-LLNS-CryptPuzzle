@@ -1,4 +1,4 @@
-The scroll around the Raven's leg reveals the following:
+The scroll around the raven's leg reveals the following:
 
 <!-- Stored result and ciphertext in raven-to-soosan.xht in generated/ -->
 
