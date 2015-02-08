@@ -213,12 +213,10 @@ class Message:
             chars=list(self.key)
             nums=list()
             n=range(len(chars)) # The iterator
-            for letter in chars:
-                # Difficulty iteration - reduce light dependence on early characters. 
-                # This map value needs to be blown up to increase character dependence
-                # For map value M, change self.mapping[letter] to self.mapping[letter]*(((self.mapping[letter])^2*i^2)%N)+1
-                # Where N is ~10 (pick a non-arbitrary choice)
-                nums.append(self.mapping[letter])
+            for i,letter in enumerate(chars):
+                letterVal = self.mapping[letter]
+                letterVal = int(letterVal) * (len(chars)-i+1)^2
+                nums.append(letterVal)
             # Do the math
             numerator=0 # summation holder
             k=0 # second summation holder
@@ -565,6 +563,29 @@ class Message:
             print("ERROR:",inst)
             return None
 
+    def getFactorV2(self):
+        # Work with the key
+        try:
+            if self.key is None:
+                raise Exception("No encryption key has been set. Run encode(), decode(), or setKey() with an encryption key first")
+            import math
+            chars=list(self.key)
+            nums=list()
+            n=range(len(chars)) # The iterator
+            for i,letter in enumerate(chars):
+                letterVal = self.mapping[letter]
+                nums.append(letterVal)
+            # Do the math
+            numerator=0 # summation holder
+            k=0 # second summation holder
+            for i in n:
+                l=i+1
+                numerator+=int(nums[i])*l
+            factor=numerator
+            return factor
+        except Exception as inst:
+            print("ERROR:",inst)
+            return None
 
     def decodeV1(self,key=None,cipher=None):
         import re
@@ -618,6 +639,60 @@ class Message:
             print("ERROR:", inst)
             return None
 
+    def decodeV2(self,key=None,cipher=None):
+        import re
+        try:        
+            if key is None and self.key is None:
+                raise Exception("No decryption key provided.")
+            elif key is None and self.key is not None:
+                key=self.key
+            if not re.match(self.regex_pattern, key) and key is not None:
+                raise Exception("Bad decryption key")
+            else:
+                if key is not None:
+                    self.key=key.upper()
+                    if cipher is not None and cipher.isdigit():
+                        if len(cipher)%3 is 0:
+                            self.cipher=cipher.upper()
+                        else:
+                            print("Invalid ciphertext length. Attempting to use stored value")
+                    elif cipher is not None and not cipher.isdigit():
+                        print("Invalid ciphertext. Attempting to use stored value")
+                    if self.cipher is not None:
+                        # Decrypt
+                        factor=self.getFactorV2()
+                        # Bucket the characters in 3
+                        cl=list(self.cipher)
+                        cb=list()
+                        i=1
+                        t=''
+                        for l in cl:
+                            t+=str(l)
+                            if i%3 is 0:
+                                cb.append(t)
+                                t=''
+                            i+=1
+                        q=''
+                        toSym=dict([reversed(i) for i in self.mappingV1.items()])
+                        self.mappingV1.update(toSym)
+                        for c in cb:
+                            try:
+                                letter=self.mappingV1[str(int(math.ceil(int(c)/factor)))]
+                            except KeyError:
+                                # Replace a 'bad' map from a bad key with a blank
+                                letter=''
+                            q+=letter
+                        uq=self.rotV1(q,'-'+str(len(self.key)))
+                        print(uq)
+                        self.message=uq
+                    else:
+                        raise Exception("No valid ciphertext to decrypt")
+        except Exception as inst:
+            print("ERROR:", inst)
+            return None
+
+
+        
     def rotV1(self,m=None,n=None):
         # Rotate a message 'm' by 'n'
         try:
