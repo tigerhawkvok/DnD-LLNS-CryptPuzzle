@@ -102,6 +102,18 @@ After it's been run through the encryption protocol, you have a mash that's gene
 #### Executing and using the program
 To run the program, just run the appropriate `runme` file in the downloaded package.
 
+> ##### Aside for OSX
+>
+> OSX doesn't let you have an executable batch file by default. So, the first time you launch, you'll need to run 
+>
+> `sudo chmod 0777 runme-osx.command`
+> 
+> at the terminal, like so:
+>
+> <img src="https://raw.githubusercontent.com/tigerhawkvok/DnD-LLNS-CryptPuzzle/master/helper/45ec4abd3e03300ee552718b48e1821a.png" alt="Sample Screenshot" style="text-align:center;margin:0 auto"/>
+>
+> Once you do, it'll execute just fine, either by double-clicking or manually running the `runme-osx.command` file from the terminal.
+
 When you run the program, the following commands are available to you:
 
 ````python
