@@ -45,7 +45,7 @@ Here is the second puzzle, or the first one you found: [Note2.md](https://github
 ## Help
 ### Using old versions of the program
 
-You can use the old `encode()` and `decode()` functions by calling `encodeV1()` and `decodeV1()`. Similarly, the old factor generation is there with `getFactorV1()`.
+You can use the old `encode()` and `decode()` functions by calling `encodeV1()` and `decodeV1()`. Similarly, the old factor generation is there with `getFactorV1()`, and also V2 equivalents (`encodeV1()`, `decodeV2()`, and `getFactorV2()`).
 
 Thus, to borrow from the old example:
 
@@ -61,6 +61,7 @@ MZ3ZIZU # whoops! Obviously different
 >>> m.getFactorV1()
 4.304
 ```
+
 
 ### Rolls for hints
 You can text me with one INT check per day, and I'll give you hints if it's good enough. The [example at the bottom](https://github.com/tigerhawkvok/DnD-LLNS-CryptPuzzle#executing-and-using-the-program) is itself always a hint, too.
