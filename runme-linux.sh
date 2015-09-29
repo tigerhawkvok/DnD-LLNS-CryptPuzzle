@@ -1,3 +1,4 @@
+#!/bin/sh
 # Shell script
 if hash python3 2>/dev/null
 then 
